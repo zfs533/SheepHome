@@ -1,0 +1,441 @@
+{
+  "ID": "de039831-c5ce-47f5-a66f-176effe46432",
+  "Version": "2.3.4",
+  "Name": "Chunk",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 3,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "Shape 126.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 20,
+            "Scale9Width": 30,
+            "Scale9Height": 21,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 5,
+            "ActionTag": 610688905,
+            "Size": {
+              "X": 98.0,
+              "Y": 98.0
+            },
+            "Name": "chunkBg",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "Shape 135.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 30,
+            "Scale9Height": 30,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 18.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1837,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.8163,
+              "Y": 0.8163
+            },
+            "LeftMargin": 18.0,
+            "TopMargin": 18.0,
+            "Tag": 6,
+            "ActionTag": 1116998784,
+            "Size": {
+              "X": 80.0,
+              "Y": 80.0
+            },
+            "Name": "chunk01",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "Shape 131.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 29,
+            "Scale9Height": 29,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.8163,
+              "Y": 0.8163
+            },
+            "RightMargin": 18.0,
+            "TopMargin": 18.0,
+            "Tag": 8,
+            "ActionTag": 1721146522,
+            "Size": {
+              "X": 80.0,
+              "Y": 80.0
+            },
+            "Name": "chunk02",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "Shape 131.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 29,
+            "Scale9Height": 29,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 98.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 90.0,
+            "RotationSkewY": 90.0018,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 1.0
+            },
+            "PreSize": {
+              "X": 0.8163,
+              "Y": 0.8163
+            },
+            "RightMargin": 18.0,
+            "TopMargin": -80.0,
+            "BottomMargin": 98.0,
+            "Tag": 9,
+            "ActionTag": 433508525,
+            "Size": {
+              "X": 80.0,
+              "Y": 80.0
+            },
+            "Name": "chunk03",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "Shape 129.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 30,
+            "Scale9Height": 29,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 18.0,
+              "Y": 18.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 1.0,
+            "RotationSkewY": 1.0018,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1837,
+              "Y": 0.1837
+            },
+            "PreSize": {
+              "X": 0.8163,
+              "Y": 0.8163
+            },
+            "LeftMargin": 18.0,
+            "BottomMargin": 18.0,
+            "Tag": 10,
+            "ActionTag": -1552631078,
+            "Size": {
+              "X": 80.0,
+              "Y": 80.0
+            },
+            "Name": "chunk04",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "Shape 127.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 42,
+            "Scale9Height": 42,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 1.0,
+            "RotationSkewY": 1.0018,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 11,
+            "ActionTag": 211294975,
+            "Size": {
+              "X": 98.0,
+              "Y": 98.0
+            },
+            "Name": "chunk05",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "Shape 139.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 16,
+            "Scale9Height": 42,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 16.5054,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 1.0,
+            "RotationSkewY": 1.002,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1684,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.6224,
+              "Y": 1.0
+            },
+            "LeftMargin": 16.5054,
+            "RightMargin": 20.4946,
+            "Tag": 12,
+            "ActionTag": -1849651154,
+            "Size": {
+              "X": 61.0,
+              "Y": 98.0
+            },
+            "Name": "chunk06",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "Shape 137.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 42,
+            "Scale9Height": 16,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 19.2353
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 1.0002,
+            "RotationSkewY": 1.0017,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.1963
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.6224
+            },
+            "TopMargin": 17.7647,
+            "BottomMargin": 19.2353,
+            "Tag": 13,
+            "ActionTag": -91372955,
+            "Size": {
+              "X": 98.0,
+              "Y": 61.0
+            },
+            "Name": "chunk07",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "Shape 144.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 42,
+            "Scale9Height": 42,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 1.0002,
+            "RotationSkewY": 1.0017,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 14,
+            "ActionTag": 1114548334,
+            "Size": {
+              "X": 98.0,
+              "Y": 98.0
+            },
+            "Name": "chunk08",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "Shape 146.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 43,
+            "Scale9Height": 42,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 1.0002,
+            "RotationSkewY": 1.0017,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 15,
+            "ActionTag": -683010577,
+            "Size": {
+              "X": 98.0,
+              "Y": 98.0
+            },
+            "Name": "chunk09",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 98.0,
+          "Y": 98.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "game/game.plist",
+        "game/game.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

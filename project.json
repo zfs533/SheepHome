@@ -1,0 +1,32 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : false,
+    "frameRate" : 60,
+    "noCache" : false,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d", "cocostudio", "extensions"],
+
+    "jsList" : [  	
+		"src/snake/Fond.js",
+		"src/snake/AStar.js",
+		"src/snake/Snake.js",
+        "src/rpg/Map.js",
+        "src/rpg/customcontrol.js",
+        "src/rpg/AnimationMgr.js",
+        "src/rpg/SkillMgr.js",
+        "src/rpg/RoleMoving.js",
+        "src/alert/Alert.js",
+        "src/fivechess/GameLogic.js",
+        "src/fivechess/Chess.js",
+        "src/fivechess/Game.js",
+        "src/sheep/Welcome.js",
+        "src/sheep/Config.js",
+        "src/sheep/Game.js",
+        "src/sheep/Chunk.js"
+    ]
+}

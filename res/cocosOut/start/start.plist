@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>Shape 41.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,2},{842,621}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{842,621}}</string>
+                <key>sourceSize</key>
+                <string>{842,621}</string>
+            </dict>
+            <key>Shape 42.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{316,846},{79,34}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{79,34}}</string>
+                <key>sourceSize</key>
+                <string>{79,34}</string>
+            </dict>
+            <key>Shape 422.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{226,846},{88,37}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{88,37}}</string>
+                <key>sourceSize</key>
+                <string>{88,37}</string>
+            </dict>
+            <key>Shape 4222.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{130,846},{94,40}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{94,40}}</string>
+                <key>sourceSize</key>
+                <string>{94,40}</string>
+            </dict>
+            <key>Shape 74.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,846},{126,52}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{126,52}}</string>
+                <key>sourceSize</key>
+                <string>{126,52}</string>
+            </dict>
+            <key>Shape 80.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{425,846},{26,26}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{26,26}}</string>
+                <key>sourceSize</key>
+                <string>{26,26}</string>
+            </dict>
+            <key>Shape 81.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{397,846},{26,26}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{26,26}}</string>
+                <key>sourceSize</key>
+                <string>{26,26}</string>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>2</integer>
+            <key>realTextureFileName</key>
+            <string>start.png</string>
+            <key>size</key>
+            <string>{625,900}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:17cb52aff4823b467c6cef8c2c27c796:0d5066dc4b70cc976c65bfca2695b25a:8515f24a45383d6b4899a9e5fc8d6fdf$</string>
+            <key>textureFileName</key>
+            <string>start.png</string>
+        </dict>
+    </dict>
+</plist>

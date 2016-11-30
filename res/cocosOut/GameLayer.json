@@ -1,0 +1,1544 @@
+{
+  "ID": "b97f2068-4351-4e4f-abdb-7df97f3cec97",
+  "Version": "2.3.4",
+  "Name": "GameLayer",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 16,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "game/background.jpg",
+              "Plist": ""
+            },
+            "Scale9Enable": true,
+            "Scale9Width": 1235,
+            "Scale9Height": 720,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -100.0763,
+              "Y": -71.4822
+            },
+            "Scale": {
+              "ScaleX": 0.9751,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0782,
+              "Y": -0.0993
+            },
+            "PreSize": {
+              "X": 1.1875,
+              "Y": 1.1389
+            },
+            "LeftMargin": -100.0763,
+            "RightMargin": -139.9237,
+            "TopMargin": -28.5178,
+            "BottomMargin": -71.4822,
+            "Tag": 18,
+            "ActionTag": 1809578235,
+            "Size": {
+              "X": 1520.0,
+              "Y": 820.0
+            },
+            "Name": "Image_1",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "Shape 126.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 19,
+            "Scale9Width": 22,
+            "Scale9Height": 22,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 71.7501,
+              "Y": 90.1591
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0561,
+              "Y": 0.1252
+            },
+            "PreSize": {
+              "X": 0.0766,
+              "Y": 0.1361
+            },
+            "LeftMargin": 71.7501,
+            "RightMargin": 1110.2499,
+            "TopMargin": 531.8409,
+            "BottomMargin": 90.1591,
+            "Tag": 21,
+            "ActionTag": 1220224276,
+            "Size": {
+              "X": 98.0,
+              "Y": 98.0
+            },
+            "VisibleForFrame": false,
+            "Name": "start",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "tree01.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 14,
+            "Scale9OriginY": 19,
+            "Scale9Width": 16,
+            "Scale9Height": 21,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 85.3837,
+              "Y": 625.6815
+            },
+            "Scale": {
+              "ScaleX": 1.3,
+              "ScaleY": 1.3
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0667,
+              "Y": 0.869
+            },
+            "PreSize": {
+              "X": 0.0344,
+              "Y": 0.0819
+            },
+            "LeftMargin": 63.3837,
+            "RightMargin": 1172.6163,
+            "TopMargin": 64.8185,
+            "BottomMargin": 596.1815,
+            "Tag": 86,
+            "ActionTag": -51509720,
+            "Size": {
+              "X": 44.0,
+              "Y": 59.0
+            },
+            "Name": "Image_14",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "tree02.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 14,
+            "Scale9OriginY": 19,
+            "Scale9Width": 21,
+            "Scale9Height": 27,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 138.8586,
+              "Y": 627.2726
+            },
+            "Scale": {
+              "ScaleX": 1.3,
+              "ScaleY": 1.3
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1085,
+              "Y": 0.8712
+            },
+            "PreSize": {
+              "X": 0.0383,
+              "Y": 0.0903
+            },
+            "LeftMargin": 114.3586,
+            "RightMargin": 1116.6414,
+            "TopMargin": 60.2274,
+            "BottomMargin": 594.7726,
+            "Tag": 87,
+            "ActionTag": 499215990,
+            "Size": {
+              "X": 49.0,
+              "Y": 65.0
+            },
+            "Name": "Image_14_0",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "tree02.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 14,
+            "Scale9OriginY": 19,
+            "Scale9Width": 21,
+            "Scale9Height": 27,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1058.7837,
+              "Y": 660.6818
+            },
+            "Scale": {
+              "ScaleX": 2.2,
+              "ScaleY": 2.2
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8272,
+              "Y": 0.9176
+            },
+            "PreSize": {
+              "X": 0.0383,
+              "Y": 0.0903
+            },
+            "LeftMargin": 1034.2837,
+            "RightMargin": 196.7163,
+            "TopMargin": 26.8182,
+            "BottomMargin": 628.1818,
+            "Tag": 89,
+            "ActionTag": 461663664,
+            "Size": {
+              "X": 49.0,
+              "Y": 65.0
+            },
+            "Name": "Image_14_0_1",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "tree02.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 14,
+            "Scale9OriginY": 19,
+            "Scale9Width": 21,
+            "Scale9Height": 27,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1240.4792,
+              "Y": 657.6822
+            },
+            "Scale": {
+              "ScaleX": 2.2,
+              "ScaleY": 2.2
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9691,
+              "Y": 0.9134
+            },
+            "PreSize": {
+              "X": 0.0383,
+              "Y": 0.0903
+            },
+            "LeftMargin": 1215.9792,
+            "RightMargin": 15.0208,
+            "TopMargin": 29.8178,
+            "BottomMargin": 625.1822,
+            "Tag": 90,
+            "ActionTag": -2146049055,
+            "Size": {
+              "X": 49.0,
+              "Y": 65.0
+            },
+            "Name": "Image_14_0_1_0",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "rect04.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 46,
+            "Scale9Width": 122,
+            "Scale9Height": 30,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 27.6542,
+              "Y": 65.7337
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0216,
+              "Y": 0.0913
+            },
+            "PreSize": {
+              "X": 0.125,
+              "Y": 0.6944
+            },
+            "LeftMargin": 27.6542,
+            "RightMargin": 1092.3458,
+            "TopMargin": 154.2663,
+            "BottomMargin": 65.7337,
+            "Tag": 46,
+            "ActionTag": -210954191,
+            "Size": {
+              "X": 160.0,
+              "Y": 500.0
+            },
+            "Name": "rect01",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "rect01.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 58,
+            "Scale9Width": 251,
+            "Scale9Height": 37,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 791.0509,
+              "Y": -13.3365
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.618,
+              "Y": -0.0185
+            },
+            "PreSize": {
+              "X": 0.2258,
+              "Y": 0.6944
+            },
+            "LeftMargin": 791.0509,
+            "RightMargin": 199.9491,
+            "TopMargin": 233.3365,
+            "BottomMargin": -13.3365,
+            "Tag": 55,
+            "ActionTag": 1321306880,
+            "Size": {
+              "X": 289.0,
+              "Y": 500.0
+            },
+            "Name": "rect02",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "rect03.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 19,
+            "Scale9Width": 120,
+            "Scale9Height": 64,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 30.2614,
+              "Y": 494.1101
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0236,
+              "Y": 0.6863
+            },
+            "PreSize": {
+              "X": 0.1234,
+              "Y": 0.1417
+            },
+            "LeftMargin": 30.2614,
+            "RightMargin": 1091.7386,
+            "TopMargin": 123.8899,
+            "BottomMargin": 494.1101,
+            "Tag": 60,
+            "ActionTag": 972512055,
+            "Size": {
+              "X": 158.0,
+              "Y": 102.0
+            },
+            "Name": "rect03",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "rect02.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 19,
+            "Scale9Width": 238,
+            "Scale9Height": 125,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 803.9452,
+              "Y": 433.1475
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6281,
+              "Y": 0.6016
+            },
+            "PreSize": {
+              "X": 0.2156,
+              "Y": 0.2264
+            },
+            "LeftMargin": 803.9452,
+            "RightMargin": 200.0548,
+            "TopMargin": 123.8525,
+            "BottomMargin": 433.1475,
+            "Tag": 61,
+            "ActionTag": -1148359824,
+            "Size": {
+              "X": 276.0,
+              "Y": 163.0
+            },
+            "Name": "rect04",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "rect06.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 8,
+            "Scale9Width": 119,
+            "Scale9Height": 10,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 187.0254,
+              "Y": 65.5884
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1461,
+              "Y": 0.0911
+            },
+            "PreSize": {
+              "X": 0.1227,
+              "Y": 0.0361
+            },
+            "LeftMargin": 187.0254,
+            "RightMargin": 935.9746,
+            "TopMargin": 628.4116,
+            "BottomMargin": 65.5884,
+            "Tag": 62,
+            "ActionTag": -208491892,
+            "Size": {
+              "X": 157.0,
+              "Y": 26.0
+            },
+            "Name": "bottom",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "rect06.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 8,
+            "Scale9Width": 119,
+            "Scale9Height": 10,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 343.4628,
+              "Y": 65.7041
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2683,
+              "Y": 0.0913
+            },
+            "PreSize": {
+              "X": 0.1227,
+              "Y": 0.0361
+            },
+            "LeftMargin": 343.4628,
+            "RightMargin": 779.5372,
+            "TopMargin": 628.2959,
+            "BottomMargin": 65.7041,
+            "Tag": 63,
+            "ActionTag": 1505117442,
+            "Size": {
+              "X": 157.0,
+              "Y": 26.0
+            },
+            "Name": "bottom_0",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "rect06.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 8,
+            "Scale9Width": 119,
+            "Scale9Height": 10,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 499.1399,
+              "Y": 65.8197
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.39,
+              "Y": 0.0914
+            },
+            "PreSize": {
+              "X": 0.1227,
+              "Y": 0.0361
+            },
+            "LeftMargin": 499.1399,
+            "RightMargin": 623.8601,
+            "TopMargin": 628.1803,
+            "BottomMargin": 65.8197,
+            "Tag": 64,
+            "ActionTag": 1771961760,
+            "Size": {
+              "X": 157.0,
+              "Y": 26.0
+            },
+            "Name": "bottom_0_0",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "rect06.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 8,
+            "Scale9Width": 119,
+            "Scale9Height": 10,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 655.0927,
+              "Y": 65.2128
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5118,
+              "Y": 0.0906
+            },
+            "PreSize": {
+              "X": 0.1227,
+              "Y": 0.0361
+            },
+            "LeftMargin": 655.0927,
+            "RightMargin": 467.9073,
+            "TopMargin": 628.7872,
+            "BottomMargin": 65.2128,
+            "Tag": 65,
+            "ActionTag": 340794029,
+            "Size": {
+              "X": 157.0,
+              "Y": 26.0
+            },
+            "Name": "bottom_0_0_0",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "rect05.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 6,
+            "Scale9Width": 172,
+            "Scale9Height": 7,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 186.9884,
+              "Y": 577.1831
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1461,
+              "Y": 0.8016
+            },
+            "PreSize": {
+              "X": 0.1641,
+              "Y": 0.0264
+            },
+            "LeftMargin": 186.9884,
+            "RightMargin": 883.0116,
+            "TopMargin": 123.8169,
+            "BottomMargin": 577.1831,
+            "Tag": 66,
+            "ActionTag": 754968413,
+            "Size": {
+              "X": 210.0,
+              "Y": 19.0
+            },
+            "Name": "top",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "rect05.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 6,
+            "Scale9Width": 172,
+            "Scale9Height": 7,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 395.3069,
+              "Y": 577.1826
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3088,
+              "Y": 0.8016
+            },
+            "PreSize": {
+              "X": 0.1641,
+              "Y": 0.0264
+            },
+            "LeftMargin": 395.3069,
+            "RightMargin": 674.6931,
+            "TopMargin": 123.8174,
+            "BottomMargin": 577.1826,
+            "Tag": 67,
+            "ActionTag": 1525985724,
+            "Size": {
+              "X": 210.0,
+              "Y": 19.0
+            },
+            "Name": "top_0",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "rect05.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 19,
+            "Scale9OriginY": 6,
+            "Scale9Width": 172,
+            "Scale9Height": 7,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 603.8979,
+              "Y": 577.1832
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4718,
+              "Y": 0.8016
+            },
+            "PreSize": {
+              "X": 0.1641,
+              "Y": 0.0264
+            },
+            "LeftMargin": 603.8979,
+            "RightMargin": 466.1021,
+            "TopMargin": 123.8168,
+            "BottomMargin": 577.1832,
+            "Tag": 68,
+            "ActionTag": -940762413,
+            "Size": {
+              "X": 210.0,
+              "Y": 19.0
+            },
+            "Name": "top_0_0",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "Shape 231.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 46,
+            "Scale9OriginY": 166,
+            "Scale9Width": 50,
+            "Scale9Height": 174,
+            "AnchorPoint": {
+              "ScaleX": 0.5
+            },
+            "Position": {
+              "X": 1153.1312,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.3,
+              "ScaleY": 1.3
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9009,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.1109,
+              "Y": 0.7028
+            },
+            "LeftMargin": 1082.1312,
+            "RightMargin": 55.8688,
+            "TopMargin": 214.0,
+            "Tag": 72,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "Sprite 2550001.png",
+                  "Plist": "animation/head.plist"
+                },
+                "Scale9OriginX": 23,
+                "Scale9OriginY": 18,
+                "Scale9Width": 21,
+                "Scale9Height": 19,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 65.5501,
+                  "Y": 198.1207
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4616,
+                  "Y": 0.3915
+                },
+                "PreSize": {
+                  "X": 0.4718,
+                  "Y": 0.1087
+                },
+                "LeftMargin": 32.0501,
+                "RightMargin": 42.9499,
+                "TopMargin": 280.3793,
+                "BottomMargin": 170.6207,
+                "Tag": 74,
+                "ActionTag": 1752226547,
+                "Size": {
+                  "X": 67.0,
+                  "Y": 55.0
+                },
+                "Name": "sheep",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "Shape 232.png",
+                  "Plist": "game/game.plist"
+                },
+                "Scale9OriginX": 23,
+                "Scale9OriginY": 35,
+                "Scale9Width": 25,
+                "Scale9Height": 38,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 65.5502,
+                  "Y": 119.9175
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4616,
+                  "Y": 0.237
+                },
+                "PreSize": {
+                  "X": 0.5,
+                  "Y": 0.2134
+                },
+                "LeftMargin": 30.0502,
+                "RightMargin": 40.9498,
+                "TopMargin": 332.0825,
+                "BottomMargin": 65.9175,
+                "Tag": 73,
+                "ActionTag": 1612322859,
+                "Size": {
+                  "X": 71.0,
+                  "Y": 108.0
+                },
+                "Name": "timeBg",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "Shape 240.png",
+                  "Plist": "game/game.plist"
+                },
+                "Scale9OriginX": 23,
+                "Scale9OriginY": 35,
+                "Scale9Width": 14,
+                "Scale9Height": 21,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 66.4199,
+                  "Y": 118.7376
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4677,
+                  "Y": 0.2347
+                },
+                "PreSize": {
+                  "X": 0.4225,
+                  "Y": 0.1798
+                },
+                "LeftMargin": 36.4199,
+                "RightMargin": 45.5801,
+                "TopMargin": 341.7624,
+                "BottomMargin": 73.2376,
+                "Tag": 75,
+                "ActionTag": -1610951237,
+                "Size": {
+                  "X": 60.0,
+                  "Y": 91.0
+                },
+                "Name": "timeBg_0",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "Shape 257.png",
+                  "Plist": "game/game.plist"
+                },
+                "Scale9OriginX": 23,
+                "Scale9OriginY": 35,
+                "Scale9Width": 58,
+                "Scale9Height": 40,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 71.8825,
+                  "Y": 340.7911
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5062,
+                  "Y": 0.6735
+                },
+                "PreSize": {
+                  "X": 0.7324,
+                  "Y": 0.2174
+                },
+                "LeftMargin": 19.8825,
+                "RightMargin": 18.1175,
+                "TopMargin": 110.2089,
+                "BottomMargin": 285.7911,
+                "Tag": 76,
+                "Children": [
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "Shape 171.png",
+                      "Plist": "game/game.plist"
+                    },
+                    "Scale9OriginX": 6,
+                    "Scale9OriginY": 7,
+                    "Scale9Width": 8,
+                    "Scale9Height": 10,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 19.8369,
+                      "Y": 41.5706
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.1907,
+                      "Y": 0.3779
+                    },
+                    "PreSize": {
+                      "X": 0.1923,
+                      "Y": 0.2182
+                    },
+                    "LeftMargin": 9.8369,
+                    "RightMargin": 74.1631,
+                    "TopMargin": 56.4294,
+                    "BottomMargin": 29.5706,
+                    "Tag": 79,
+                    "ActionTag": 895409157,
+                    "Size": {
+                      "X": 20.0,
+                      "Y": 24.0
+                    },
+                    "Name": "score01",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "Shape 171.png",
+                      "Plist": "game/game.plist"
+                    },
+                    "Scale9OriginX": 6,
+                    "Scale9OriginY": 7,
+                    "Scale9Width": 8,
+                    "Scale9Height": 10,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 41.3102,
+                      "Y": 41.5706
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.3972,
+                      "Y": 0.3779
+                    },
+                    "PreSize": {
+                      "X": 0.1923,
+                      "Y": 0.2182
+                    },
+                    "LeftMargin": 31.3102,
+                    "RightMargin": 52.6898,
+                    "TopMargin": 56.4294,
+                    "BottomMargin": 29.5706,
+                    "Tag": 80,
+                    "ActionTag": 1438670265,
+                    "Size": {
+                      "X": 20.0,
+                      "Y": 24.0
+                    },
+                    "Name": "score02",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "Shape 171.png",
+                      "Plist": "game/game.plist"
+                    },
+                    "Scale9OriginX": 6,
+                    "Scale9OriginY": 7,
+                    "Scale9Width": 8,
+                    "Scale9Height": 10,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 62.7835,
+                      "Y": 41.5706
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.6037,
+                      "Y": 0.3779
+                    },
+                    "PreSize": {
+                      "X": 0.1923,
+                      "Y": 0.2182
+                    },
+                    "LeftMargin": 52.7835,
+                    "RightMargin": 31.2165,
+                    "TopMargin": 56.4294,
+                    "BottomMargin": 29.5706,
+                    "Tag": 81,
+                    "ActionTag": 1602299468,
+                    "Size": {
+                      "X": 20.0,
+                      "Y": 24.0
+                    },
+                    "Name": "score03",
+                    "ctype": "ImageViewObjectData"
+                  },
+                  {
+                    "FileData": {
+                      "Type": "PlistSubImage",
+                      "Path": "Shape 171.png",
+                      "Plist": "game/game.plist"
+                    },
+                    "Scale9OriginX": 6,
+                    "Scale9OriginY": 7,
+                    "Scale9Width": 8,
+                    "Scale9Height": 10,
+                    "AnchorPoint": {
+                      "ScaleX": 0.5,
+                      "ScaleY": 0.5
+                    },
+                    "Position": {
+                      "X": 84.2568,
+                      "Y": 41.5706
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "CColor": {},
+                    "IconVisible": false,
+                    "PrePosition": {
+                      "X": 0.8102,
+                      "Y": 0.3779
+                    },
+                    "PreSize": {
+                      "X": 0.1923,
+                      "Y": 0.2182
+                    },
+                    "LeftMargin": 74.2568,
+                    "RightMargin": 9.7432,
+                    "TopMargin": 56.4294,
+                    "BottomMargin": 29.5706,
+                    "Tag": 82,
+                    "ActionTag": 523658266,
+                    "Size": {
+                      "X": 20.0,
+                      "Y": 24.0
+                    },
+                    "Name": "score04",
+                    "ctype": "ImageViewObjectData"
+                  }
+                ],
+                "ActionTag": -1845486739,
+                "Size": {
+                  "X": 104.0,
+                  "Y": 110.0
+                },
+                "Name": "scoreBg",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "Shape 258.png",
+                  "Plist": "game/game.plist"
+                },
+                "Scale9OriginX": 6,
+                "Scale9OriginY": 7,
+                "Scale9Width": 8,
+                "Scale9Height": 10,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 57.5303,
+                  "Y": 429.2659
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4051,
+                  "Y": 0.8484
+                },
+                "PreSize": {
+                  "X": 0.1408,
+                  "Y": 0.0474
+                },
+                "LeftMargin": 47.5303,
+                "RightMargin": 74.4697,
+                "TopMargin": 64.7341,
+                "BottomMargin": 417.2659,
+                "Tag": 77,
+                "ActionTag": -372685776,
+                "Size": {
+                  "X": 20.0,
+                  "Y": 24.0
+                },
+                "Name": "level01",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "Shape 259.png",
+                  "Plist": "game/game.plist"
+                },
+                "Scale9OriginX": 6,
+                "Scale9OriginY": 7,
+                "Scale9Width": 1,
+                "Scale9Height": 9,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 79.058,
+                  "Y": 429.7876
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5567,
+                  "Y": 0.8494
+                },
+                "PreSize": {
+                  "X": 0.0845,
+                  "Y": 0.0455
+                },
+                "LeftMargin": 73.058,
+                "RightMargin": 56.942,
+                "TopMargin": 64.7124,
+                "BottomMargin": 418.2876,
+                "Tag": 78,
+                "ActionTag": -1027601525,
+                "Size": {
+                  "X": 12.0,
+                  "Y": 23.0
+                },
+                "Name": "level02",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "spritee.png",
+                  "Plist": "game/game.plist"
+                },
+                "Scale9OriginX": 6,
+                "Scale9OriginY": 1,
+                "Scale9Width": 85,
+                "Scale9Height": 3,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 66.728,
+                  "Y": 42.0127
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4699,
+                  "Y": 0.083
+                },
+                "PreSize": {
+                  "X": 0.6831,
+                  "Y": 0.0099
+                },
+                "LeftMargin": 18.228,
+                "RightMargin": 26.772,
+                "TopMargin": 461.4873,
+                "BottomMargin": 39.5127,
+                "Tag": 83,
+                "ActionTag": -35055298,
+                "Size": {
+                  "X": 97.0,
+                  "Y": 5.0
+                },
+                "Name": "level02_0",
+                "ctype": "ImageViewObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "PressedFileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "Sprite 820002.png",
+                  "Plist": "game/game.plist"
+                },
+                "NormalFileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "Sprite 820001.png",
+                  "Plist": "game/game.plist"
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 8,
+                "Scale9OriginY": 11,
+                "Scale9Width": 10,
+                "Scale9Height": 4,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 104.2336,
+                  "Y": 17.3604
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.734,
+                  "Y": 0.0343
+                },
+                "PreSize": {
+                  "X": 0.1831,
+                  "Y": 0.0514
+                },
+                "LeftMargin": 91.2336,
+                "RightMargin": 24.7664,
+                "TopMargin": 475.6396,
+                "BottomMargin": 4.3604,
+                "Tag": 84,
+                "ActionTag": -1071638960,
+                "Size": {
+                  "X": 26.0,
+                  "Y": 26.0
+                },
+                "Name": "musicBtn",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FontSize": 14,
+                "ButtonText": "",
+                "TextColor": {
+                  "R": 65,
+                  "G": 65,
+                  "B": 70
+                },
+                "DisabledFileData": {
+                  "Type": "Default",
+                  "Path": "Default/Button_Disable.png",
+                  "Plist": ""
+                },
+                "NormalFileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "Shape 270.png",
+                  "Plist": "game/game.plist"
+                },
+                "Scale9Enable": true,
+                "Scale9OriginX": 8,
+                "Scale9OriginY": 11,
+                "Scale9Width": 10,
+                "Scale9Height": 4,
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "TouchEnable": true,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 70.6991,
+                  "Y": 17.3604
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4979,
+                  "Y": 0.0343
+                },
+                "PreSize": {
+                  "X": 0.1831,
+                  "Y": 0.0514
+                },
+                "LeftMargin": 57.6991,
+                "RightMargin": 58.3009,
+                "TopMargin": 475.6396,
+                "BottomMargin": 4.3604,
+                "Tag": 85,
+                "ActionTag": 357316253,
+                "Size": {
+                  "X": 26.0,
+                  "Y": 26.0
+                },
+                "Name": "pauseBtn",
+                "ctype": "ButtonObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "PlistSubImage",
+                  "Path": "Sprite 2390001.png",
+                  "Plist": "animation/time.plist"
+                },
+                "Scale9OriginX": 23,
+                "Scale9OriginY": 35,
+                "Scale9Width": 5,
+                "Scale9Height": 15,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 352.9514,
+                  "Y": 109.2228
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.4856,
+                  "Y": 0.2159
+                },
+                "PreSize": {
+                  "X": 0.3592,
+                  "Y": 0.168
+                },
+                "LeftMargin": 327.4514,
+                "RightMargin": -236.4514,
+                "TopMargin": 354.2772,
+                "BottomMargin": 66.7228,
+                "Tag": 35,
+                "ActionTag": -997331372,
+                "Size": {
+                  "X": 51.0,
+                  "Y": 85.0
+                },
+                "Name": "timeBg_0_0",
+                "ctype": "ImageViewObjectData"
+              }
+            ],
+            "ActionTag": -1703172506,
+            "Size": {
+              "X": 142.0,
+              "Y": 506.0
+            },
+            "Name": "Image_2",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "PlistSubImage",
+              "Path": "tree02.png",
+              "Plist": "game/game.plist"
+            },
+            "Scale9OriginX": 14,
+            "Scale9OriginY": 19,
+            "Scale9Width": 21,
+            "Scale9Height": 27,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 31.5342,
+              "Y": 45.585
+            },
+            "Scale": {
+              "ScaleX": 1.3,
+              "ScaleY": 1.3
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0246,
+              "Y": 0.0633
+            },
+            "PreSize": {
+              "X": 0.0383,
+              "Y": 0.0903
+            },
+            "LeftMargin": 7.0342,
+            "RightMargin": 1223.9658,
+            "TopMargin": 641.915,
+            "BottomMargin": 13.085,
+            "Tag": 88,
+            "ActionTag": 458654266,
+            "Size": {
+              "X": 49.0,
+              "Y": 65.0
+            },
+            "Name": "Image_14_0_0",
+            "ctype": "ImageViewObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1280.0,
+          "Y": 720.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "animation/head.plist",
+        "animation/head.png",
+        "animation/time.plist",
+        "animation/time.png",
+        "Default/Button_Disable.png",
+        "game/background.jpg",
+        "game/game.plist",
+        "game/game.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
