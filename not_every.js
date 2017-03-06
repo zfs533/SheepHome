@@ -502,10 +502,14 @@ performWithDelay(self,function()
 02806878
 
 
-/*************20170304******************/
-1：聊天中超链接颜色处理
-2：特殊文字显示，是否需要下划线
-3：没有超链接的特殊文字颜色处理
+
+/*************20170306******************/
+// -1：角色界面的属性界面优化（十大神器系统入口）
+// 0：角色界面UI优化
+// 1：聊天中超链接颜色处理
+// 2：特殊文字显示，是否需要下划线
+// 3：没有超链接的特殊文字颜色处理
+// 4：聊天界面弹出按钮调整
 
 
 
@@ -515,6 +519,80 @@ performWithDelay(self,function()
 
 
 
+
+
+
+
+
+
+
+
+为单个Sprite添加触摸事件
+本篇内容将实现一个仅仅在Sprite范围内触发触摸事件的效果，当触摸Sprite以外的区域时将不做任何操作，而当触摸Sprite尺寸范围以内的区域时将Sprite的缩放比调整为1:1.2，当触发触摸事件结束时（TouchEnd），将Sprite的比例调整为1:1。
+1：实例化一个Sprite.
+local sp = cc.Sprite:create()
+2：实例化触摸事件监听器，这里以单点触摸为例.
+local listener = cc.EventListenerTouchOneByOne:create()
+将吞噬属性设为true，这样设置后该Sprite下面覆盖的事件将不会生效
+listener:setSwallowTouches(true)
+3：注册操作事件的回调函数，根据触摸状态的不同这里有四种注册函数，分别是：
+cc.Handler.EVENT_TOUCH_BEGAN      = 40//开始触摸
+cc.Handler.EVENT_TOUCH_MOVED      = 41//滑动
+cc.Handler.EVENT_TOUCH_ENDED      = 42//结束触摸
+cc.Handler.EVENT_TOUCH_CANCELLED  = 43//取消（如滑出屏幕）
+注册回调函数必须使用registerScriptHandler(callback,event)，其中第一个参数为响应事件的回调函数，第二个参数为上面列举的四个注册函数类型。
+为Sprite注册回调函数
+listener:registerScriptHandler(onTouchBegan,cc.Handler.EVENT_TOUCH_BEGAN)
+listener:registerScriptHandler(onTouchMove,cc.Handler.EVENT_TOUCH_MOVED)
+listener:registerScriptHandler(onTouchEnded,cc.Handler.EVENT_TOUCH_ENDED)
+listener:registerScriptHandler(onTouchCancelled,cc.Handler.EVENT_TOUCH_CANCELLED)
+4：操作相关回调函数
+function onTouchBegan(touch,event)
+	//touch/event 都是userdata类型
+	//touch是当前触摸点，可以通过其方法GetLocation()获取
+	//touch还有一个方法GetDelta()，在滑动事件中可以获取到滑动前后连个点之间的距离
+	//event可以通过方法getCurrentTarget()获取到当前用户点击的哪个对象
+	//event可以通过方法getEventCode()判断当前事件处于哪个状态,其值为
+	//cc.EventCode ={BEGAN = 0,MOVED = 1,ENDED = 2,CANCELLED = 3,}
+	print("touch begain")
+	local p = touch:getLocation()
+	p = sp:convertToNodeSpace(p)//这里将坐标系转换到Sprite坐标系
+	local target = event:getCurrentTarget()
+	local size = target:getContentSize()
+	local rect = cc.rect(0,0,size.width,size.height)//当前Sprite的有效范围
+	//当触摸Sprite以外的区域时将不做任何操作
+	if p.x > targetRect.width or p.x < 0 or p.y > targetRect.height or p.y < 0 then
+            return false
+    end
+    //设置Sprite缩放比例为1:1.2
+    target:setScale(1.2);
+    return true
+   	//注意：函数的最好必须有返回值true或者false,true表示有效，false表示无效，否则程序会异常
+end
+
+function onTouchMove(touch,event)
+	//Todo
+end
+
+function onTouchEnded(touch,event)
+	print("touch ended")
+	//恢复Sprite缩放比例为1:1
+	local target = event:getCurrentTarget()
+    target:setScale(1);
+end
+
+function onTouchCancelled(touch,event)
+	//Todo
+end
+
+5：最后为Sprite绑定listener事件
+这里有两种方法：
+其一、从Sprite自身获取事件发生器EventDispatcher
+local eventDispatcher = sp:getEventDispatcher()
+其二、从Director获取事件发生器EventDispatcher
+local eventDispatcher = cc.Director:getInstance():getEventDispatcher()
+然后实现绑定操作
+eventDispatcher:addEventListenerWithSceneGraphPriority(listener,layer)
 
 
 
