@@ -510,6 +510,7 @@ performWithDelay(self,function()
 // 2：特殊文字显示，是否需要下划线
 // 3：没有超链接的特殊文字颜色处理
 // 4：聊天界面弹出按钮调整
+// 5：提交代码
 
 
 
@@ -526,8 +527,7 @@ performWithDelay(self,function()
 
 
 
-
-为单个Sprite添加触摸事件
+Lua 之C2d为单个Sprite添加触摸事件
 本篇内容将实现一个仅仅在Sprite范围内触发触摸事件的效果，当触摸Sprite以外的区域时将不做任何操作，而当触摸Sprite尺寸范围以内的区域时将Sprite的缩放比调整为1:1.2，当触发触摸事件结束时（TouchEnd），将Sprite的比例调整为1:1。
 1：实例化一个Sprite.
 local sp = cc.Sprite:create()
@@ -593,6 +593,53 @@ local eventDispatcher = sp:getEventDispatcher()
 local eventDispatcher = cc.Director:getInstance():getEventDispatcher()
 然后实现绑定操作
 eventDispatcher:addEventListenerWithSceneGraphPriority(listener,layer)
+
+
+Lua 之C2d序列帧动画的两种实现方法
+本篇内容主要介绍两种序列帧动画的实现方法，两者的仅仅在使用的帧动画资源形式上有所不同，一个是直接使用本地的散图来实现，一个是使用打包后的整图通过spriteframecache精灵帧缓存实现
+一：首先介绍项目中最常用的一种实现方式，使用打包后的整图实现，及上述后一种。
+1：通过精灵帧缓存类SpriteFrameCache加载整图资源
+cc.SpriteFrameCache:getInstance():addSpriteFrames("star/blink.plist")
+2：实例化一个运行动画的精灵
+local sprite = cc.Sprite:create()
+3：将需要实现帧动画的精灵帧组装起来，这里要将其封装在一个table中，原因必须满足Animation类实例化的参数类型条件
+local frameArr = {}
+for i = 1, 3 do
+	local spriteFrame = cc.SpriteFrameCache:getInstance():getSpriteFrame("blink" .. i .. ".png")//这里返回的类型为SpriteFrame
+	frameArr[i] = spriteFrame
+	//table.insert(frameArr,1,spriteFrame) 同frame[i] = spriteFrame效果一样
+end
+4：实例化Animation和Animate类对象
+local animation = cc.Animation:createWithSpriteFrames(frameArr,0.2)//参数分别表示精灵帧集和播放动画的频率
+local animate = cc.Animate:create(animation)
+//animation与animate的区别就在于前者直接继承cc.Class而后者继承了cc.Action,Sprite使用方法runAction(action)运行动画，action必须继承自cc.Action
+5：运行动画,这里为了测试方便使用了cc.RepeatForever.create(action)永久执行
+sprite:runAction(cc.RepeatForever.create(animate))
+
+二：直接使用本地零散图片来实现
+1：实例化一个运行动画的精灵
+local sprite = cc.Sprite:create()
+2：实例化Animation类对象，并调用其方法addSpriteFrameWithFile(filepath)加载需要实现序列帧动画的本地小图
+local animation = cc.Animation:create()
+animation:addSpriteFrameWithFile("star/sp1.png")
+animation:addSpriteFrameWithFile("star/sp2.png")
+animation:addSpriteFrameWithFile("star/sp3.png")
+animation:addSpriteFrameWithFile("star/sp4.png")
+animation:addSpriteFrameWithFile("star/sp5.png")
+//设置播放动画的频率
+animation:setDelayPerUnit(0.2)
+3：实例化Animate类
+local animate = cc.Animate:create(animation)
+4：运行动画
+sprite:runAction(cc.RepeatForever.create(animate))
+
+
+
+
+
+
+
+
 
 
 
