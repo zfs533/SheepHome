@@ -514,6 +514,25 @@ performWithDelay(self,function()
 
 
 
+博客发布之前先仔细读一遍，以免有遗漏或者表意不明的地方
+
+
+
+
+/*************20170307******************/
+// 1：头衔广播接口是否存在（map_message.js中周围玩家信息中没有头衔id，则没有头衔广播，游戏中只能看到自己的头衔）
+// 2：优化头衔和玩家名字切换的接口
+// 3：如果系统未开放，将战甲显示出来，给个暂未开放的提示信息（首冲开放，让玩家知道有这么个东西）
+4：准备跨服多人组队副本，UI应该快要下来了
+// 5：对了，还有个答题领取奖励的效果没做（优先整）
+// 6：太极界面活动跳转到帮会答题活动的接口实现
+/********************/
+1：lua类的两种实现方法
+2：重写消除核心递归方法
+3：第一点博客草稿
+
+/*************20170308******************/
+跨服多人组队副本
 
 
 
@@ -528,7 +547,8 @@ performWithDelay(self,function()
 
 
 Lua 之C2d为单个Sprite添加触摸事件
-本篇内容将实现一个仅仅在Sprite范围内触发触摸事件的效果，当触摸Sprite以外的区域时将不做任何操作，而当触摸Sprite尺寸范围以内的区域时将Sprite的缩放比调整为1:1.2，当触发触摸事件结束时（TouchEnd），将Sprite的比例调整为1:1。
+本篇内容将实现一个仅仅在Sprite范围内触发触摸事件的效果，当触摸Sprite以外的区域时将不做任何操作，
+而当触摸Sprite尺寸范围以内的区域时将Sprite的缩放比调整为1:1.2，当触发触摸事件结束时（TouchEnd），将Sprite的比例调整为1:1。
 1：实例化一个Sprite.
 local sp = cc.Sprite:create()
 2：实例化触摸事件监听器，这里以单点触摸为例.
@@ -543,14 +563,14 @@ cc.Handler.EVENT_TOUCH_CANCELLED  = 43//取消（如滑出屏幕）
 注册回调函数必须使用registerScriptHandler(callback,event)，其中第一个参数为响应事件的回调函数，第二个参数为上面列举的四个注册函数类型。
 为Sprite注册回调函数
 listener:registerScriptHandler(onTouchBegan,cc.Handler.EVENT_TOUCH_BEGAN)
-listener:registerScriptHandler(onTouchMove,cc.Handler.EVENT_TOUCH_MOVED)
+listener:registerScriptHandler(onTouchMove,cc.Handler.EVENT_TOUCH_MOVED)	
 listener:registerScriptHandler(onTouchEnded,cc.Handler.EVENT_TOUCH_ENDED)
 listener:registerScriptHandler(onTouchCancelled,cc.Handler.EVENT_TOUCH_CANCELLED)
 4：操作相关回调函数
 function onTouchBegan(touch,event)
 	//touch/event 都是userdata类型
 	//touch是当前触摸点，可以通过其方法GetLocation()获取
-	//touch还有一个方法GetDelta()，在滑动事件中可以获取到滑动前后连个点之间的距离
+	//touch还有一个方法GetDelta()，在滑动事件中可以获取到滑动前后两个点之间的距离
 	//event可以通过方法getCurrentTarget()获取到当前用户点击的哪个对象
 	//event可以通过方法getEventCode()判断当前事件处于哪个状态,其值为
 	//cc.EventCode ={BEGAN = 0,MOVED = 1,ENDED = 2,CANCELLED = 3,}
@@ -596,7 +616,8 @@ eventDispatcher:addEventListenerWithSceneGraphPriority(listener,layer)
 
 
 Lua 之C2d序列帧动画的两种实现方法
-本篇内容主要介绍两种序列帧动画的实现方法，两者的仅仅在使用的帧动画资源形式上有所不同，一个是直接使用本地的散图来实现，一个是使用打包后的整图通过spriteframecache精灵帧缓存实现
+本篇内容主要介绍两种序列帧动画的实现方法，两者的区别仅仅在使用的帧动画资源形式上有所不同，
+一个是直接使用本地的散图来实现，一个是使用打包后的整图通过spriteframecache精灵帧缓存资源实现
 一：首先介绍项目中最常用的一种实现方式，使用打包后的整图实现，及上述后一种。
 1：通过精灵帧缓存类SpriteFrameCache加载整图资源
 cc.SpriteFrameCache:getInstance():addSpriteFrames("star/blink.plist")
@@ -632,6 +653,42 @@ animation:setDelayPerUnit(0.2)
 local animate = cc.Animate:create(animation)
 4：运行动画
 sprite:runAction(cc.RepeatForever.create(animate))
+
+
+
+
+
+Lua 之C2d类创建的方法
+
+/***************************************************/
+
+local FruitItem = class("FruitItem")
+
+function FruitItem:ctor(x,y,index,parent)
+    print(x,y,index)
+    local sprite = cc.Sprite:create("HelloWorld.png")
+    sprite:setPosition(x,y)
+--    cc.Director:getInstance():getRunningScene():addChild(sprite) 
+    parent:addChild(sprite,1)  
+end
+
+return FruitItem
+
+/***************************************************/
+
+local FruitItem = class("FruitItem",function(x,y,index)
+    index = fruitIndex or math.round(math.random()*1000)%8 + 1
+    local sprite = cc.Sprite:create("res/HelloWorld.png")
+    sprite:setPosition(x,y)
+    return sprite;
+end)
+
+function FruitItem:ctor()
+end
+return FruitItem
+
+
+
 
 
 
