@@ -533,6 +533,132 @@ performWithDelay(self,function()
 
 /*************20170308******************/
 跨服多人组队副本
+// 1：玩家离开跨服后将跨服中的玩家头衔显示信息面板移除
+2：退出副本命令要执行两次，感觉是个BUG，要调一哈
+// 3：副本胜利结算界面退出接口处理，连接直接断开，明显有问题
+
+
+
+
+聊天系统BUG
+1：玩家自己的发言记录 要靠右显示，底色要和其他人进行区分
+2：聊天长度超过背景框了
+3：传音 这里没有对齐
+4：吞噬点击事件
+5：点击玩家名字直接弹出下拉菜单，点击装备链接弹出装备信息，不需要打开左侧的聊天界面
+6：玩家名字链接弹出玩家简要信息面板
+7：只有在世界频道玩家自己发言需要显示在右边，其它频道一律显示在左边
+8：世界频道链接类不作处理（暂时屏蔽掉）
+
+
+
+20170310
+1：解决多人副本问题
+2：改聊天系统策划提出的Bug
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+准备进入mapId:20002
+准备进入mapId:10601
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -659,33 +785,57 @@ sprite:runAction(cc.RepeatForever.create(animate))
 
 
 Lua 之C2d类创建的方法
-
-/***************************************************/
-
+这里介绍两种在cocos2d-LUA中创建类的方法，这两种方法的唯一区别就在于是否继承了父类；两种的实现都是通过调用全局方法class("classname")来实现的，class()方法为引擎自带。
+一：首先来看下没有继承父类的创建方法
+1：定义FruitItem类并调用class方法
 local FruitItem = class("FruitItem")
-
-function FruitItem:ctor(x,y,index,parent)
-    print(x,y,index)
-    local sprite = cc.Sprite:create("HelloWorld.png")
-    sprite:setPosition(x,y)
---    cc.Director:getInstance():getRunningScene():addChild(sprite) 
-    parent:addChild(sprite,1)  
+这里使用局部变量local的好处是可以避免全局变量滥用而引发的内存泄漏,项目中尽可能的少用全局变量
+2：重写构造函数ctor,ctor必须重写，因为在使用该类的地方，创建对象的时候该方法必须被调用，否则程序会出现异常
+function FruitItem:ctor(param)
+	//todo
+	local sprite = cc.Sprite:create("HelloWorld.png")
+	return sprite
 end
-
+参数param可以是任意类型，在创建FruitItem对象的时候的new方法里直接传递
+3：将该类还回，这里一定要还回FruitItem，不然在外部加载该lua文件的时候将会得到nil
 return FruitItem
+4：在其他lua文件中实例化使用该类，使用FruitItem的代码不能跟FruitItem在同一个lua文件中
+local FruitItem = import("src.app.views.FruitItem")//这里的FruitItem是lua文件的名称，及FruitItem.lua
+local fruitItem = FruitItem:new(parm)
+fruitItem:setPosition(num,num)
 
-/***************************************************/
-
-local FruitItem = class("FruitItem",function(x,y,index)
-    index = fruitIndex or math.round(math.random()*1000)%8 + 1
-    local sprite = cc.Sprite:create("res/HelloWorld.png")
-    sprite:setPosition(x,y)
-    return sprite;
+二：使用匿名函数继承其他类
+1：定义FruitItem类并调用class方法，并传递第二次参数，参数为匿名函数，在匿名函数的实现部分实例化并返回要继承的类或类型
+local FruitItem = class("FruitItem",function(param)
+	local sprite = cc.Sprite:create("res/HelloWorld.png")
+	sprite:setPosition(param)
+	return sprite
 end)
-
-function FruitItem:ctor()
+2：重写构造函数ctor
+function FruitItem:ctor(param)
+	//todo
 end
+3：同样将该类返回
 return FruitItem
+4：使用该类
+local FruitItem = import("src.app.views.FruitItem")
+local fruitItem = FruitItem:new(parm)
+这里fruitItem继承了cc.Sprite的所有属性和方法，在FruitItem中还可以进行进一步的扩展
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
