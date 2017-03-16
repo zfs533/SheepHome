@@ -609,9 +609,42 @@ LUA-Cocos2d
 	1：已穿戴=>直接使用图纸
 	2：未穿戴=>不做任何处理，直接return
 5：相关实现代码backpack_mgr,equip_mgr,player_mgr
-疑问：(明天解决)
-1：怎么区分连服跟跨服多人副本，type都是6
-2：连服的消息不太看得懂，创建队伍，开始副本的消息貌似木有
+// 疑问：(明天解决)
+// 1：怎么区分连服跟跨服多人副本，type都是6
+// 2：连服的消息不太看得懂，创建队伍，开始副本的消息貌似木有
+
+
+20170315
+1：对接连服多人副本zoneteam
+
+20170316
+// 角色，邮件，聊天，好友，摇杆，改名，头衔，称号，战甲，跨服多人副本，连服多人副本
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -640,248 +673,532 @@ LUA-Cocos2d
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-相顾无言,你却懂我
-
-"四季交替","有人惦念冷暖","心情多变","有人一直包容","我们一生所寻求的","不外乎就是有人在乎",
-"有人懂","眼中有笑","心中有暖",
-"走千条路","只一条适合","遇万般人","得一人足够",
-"在意","却不刻意","珍惜","却不痴迷","若有若无的联系","是一份随意","或深或浅的交集",
-"是一份默契","可肆意畅谈",
-"也可默然相对","可紧密相连","也可疏于不见",
-"所有的苦乐","有人懂","一切的努力有人知",
-"一杯热茶","暖的是身","一句懂得","暖的是心","最真的拥有","是我在","最美的感情","是我懂",
-"最好的时光","是彼此都在","却可以不见面","最好的感情","是双方都懂","却不用说出来",
-"心若相知","无言也默契","情若相眷","不语也怜惜",
-"很多时候","我们都是在寻找可以倾诉的人","有些话憋在心里会崩溃","需要出口","有些事扛在肩上是压力",
-"需要分担","找一个畅所欲言的伴","让精神舒缓","守一份不离不弃的情","让心灵靠岸",
-"伪装不出的担心","是真诚","掩饰不住的思念","是感情"
-
-
-
-
-
-
-
-
-
-Lua 之C2d为单个Sprite添加触摸事件
-本篇内容将实现一个仅仅在Sprite范围内触发触摸事件的效果，当触摸Sprite以外的区域时将不做任何操作，
-而当触摸Sprite尺寸范围以内的区域时将Sprite的缩放比调整为1:1.2，当触发触摸事件结束时（TouchEnd），将Sprite的比例调整为1:1。
-1：实例化一个Sprite.
-local sp = cc.Sprite:create()
-2：实例化触摸事件监听器，这里以单点触摸为例.
-local listener = cc.EventListenerTouchOneByOne:create()
-将吞噬属性设为true，这样设置后该Sprite下面覆盖的事件将不会生效
-listener:setSwallowTouches(true)
-3：注册操作事件的回调函数，根据触摸状态的不同这里有四种注册函数，分别是：
-cc.Handler.EVENT_TOUCH_BEGAN      = 40//开始触摸
-cc.Handler.EVENT_TOUCH_MOVED      = 41//滑动
-cc.Handler.EVENT_TOUCH_ENDED      = 42//结束触摸
-cc.Handler.EVENT_TOUCH_CANCELLED  = 43//取消（如滑出屏幕）
-注册回调函数必须使用registerScriptHandler(callback,event)，其中第一个参数为响应事件的回调函数，第二个参数为上面列举的四个注册函数类型。
-为Sprite注册回调函数
-listener:registerScriptHandler(onTouchBegan,cc.Handler.EVENT_TOUCH_BEGAN)
-listener:registerScriptHandler(onTouchMove,cc.Handler.EVENT_TOUCH_MOVED)	
-listener:registerScriptHandler(onTouchEnded,cc.Handler.EVENT_TOUCH_ENDED)
-listener:registerScriptHandler(onTouchCancelled,cc.Handler.EVENT_TOUCH_CANCELLED)
-4：操作相关回调函数
-function onTouchBegan(touch,event)
-	//touch/event 都是userdata类型
-	//touch是当前触摸点，可以通过其方法GetLocation()获取
-	//touch还有一个方法GetDelta()，在滑动事件中可以获取到滑动前后两个点之间的距离
-	//event可以通过方法getCurrentTarget()获取到当前用户点击的哪个对象
-	//event可以通过方法getEventCode()判断当前事件处于哪个状态,其值为
-	//cc.EventCode ={BEGAN = 0,MOVED = 1,ENDED = 2,CANCELLED = 3,}
-	print("touch begain")
-	local p = touch:getLocation()
-	p = sp:convertToNodeSpace(p)//这里将坐标系转换到Sprite坐标系
-	local target = event:getCurrentTarget()
-	local size = target:getContentSize()
-	local rect = cc.rect(0,0,size.width,size.height)//当前Sprite的有效范围
-	//当触摸Sprite以外的区域时将不做任何操作
-	if p.x > targetRect.width or p.x < 0 or p.y > targetRect.height or p.y < 0 then
-            return false
+Lua 之C2d三消游戏（二）原理说明
+1：创建一个Chunk类，包括类型，所在行列属性
+2：以二维数组的形式排列存储star
+3：初始化基本属性，为chunk添加触摸事件
+4：查找所有chunk，将相邻且同类型的chunk赛选出来,并存储起来
+	1：遍历每一列，循环从每一列的前三个开始循环
+	2：遍历每一行，循环从每一行的前三个开始循环
+	3：必须至少有三个相邻且类型相同
+	具体代码：
+--  检测所有chunk，将满足条件的chunk赛选出来
+function ChunkMain:checkAllChunk()
+    -- 垂直方向检查
+    local sameChunkArr = {}
+    for i = 1, self.rangeHor do
+        local tempArr = {}
+        for j = 1, self.rangeVer-2 do
+            local chunk01 = self.chunkArr[i][j]
+            local chunk02 = self.chunkArr[i][j+1]
+            local chunk03 = self.chunkArr[i][j+2]
+            if chunk01 and chunk02 and chunk03 then
+                if chunk01.type == chunk02.type and chunk01.type == chunk03.type then
+                    table.insert(tempArr,1,chunk01)    -- 这里要单独存一个table
+                    table.insert(tempArr,1,chunk02)
+                    table.insert(tempArr,1,chunk03)
+                    table.insert(sameChunkArr,1,tempArr)
+                end
+            end
+        end
     end
-    //设置Sprite缩放比例为1:1.2
-    target:setScale(1.2);
-    return true
-   	//注意：函数的最好必须有返回值true或者false,true表示有效，false表示无效，否则程序会异常
+    -- 水平方向检查
+    for j = 1, self.rangeVer do
+        local tempArr = {}
+        for i = 1, self.rangeHor-2 do
+            local chunk01 = self.chunkArr[i][j]
+            local chunk02 = self.chunkArr[i+1][j]
+            local chunk03 = self.chunkArr[i+2][j]
+            if chunk01 and chunk02 and chunk03 then
+                if chunk01.type == chunk02.type and chunk01.type == chunk03.type then
+                    table.insert(tempArr,1,chunk01)    -- 这里要单独存一个table
+                    table.insert(tempArr,1,chunk02)
+                    table.insert(tempArr,1,chunk03)
+                    table.insert(sameChunkArr,1,tempArr)
+                end
+            end
+        end
+    end
+    local chunkArr = {}
+    for i = 1, table.getn(sameChunkArr) do
+        local tempChunk = sameChunkArr[i]
+        for j = 1, table.getn(tempChunk) do
+            table.insert(chunkArr,1,tempChunk[j])
+        end
+    end
+    self:distoryChunk(chunkArr)
+    if table.getn(sameChunkArr) < 1 then
+        self:reSetChunkPos()
+    end
+end
+5：选择chunk逻辑,这里要记录选择的前两个chunk，设为firstChunk,secoundChunk，设当前选中的chunk为target
+	1：若firstChunk为空，则赋值target
+	2：若firstChunk不为空，且secoundChunk为空
+		1：若target == firstChunk,将firstChunk设为空
+		2：若target ~= firstChunk,则赋值secoundChunk = target
+	3：若两者都不为空，则将target赋值给firstChunk,将secoundChunk设为空
+	具体代码：
+--  选中chunk逻辑
+function ChunkMain:handleSelectedChunk(target)
+    if not ChunkMain.firstChunk then -- 1
+        ChunkMain.firstChunk = target
+        target:setStateSelected()
+    elseif ChunkMain.firstChunk and not ChunkMain.secoundChunk then  -- 2
+        if ChunkMain.firstChunk.hor == target.hor and ChunkMain.firstChunk.ver == target.ver then --两次选中同一个chunk,则取消选择
+            target:clearStarState()
+            ChunkMain.firstChunk = nil
+        else
+            target:setStateSelected()
+            ChunkMain.secoundChunk = target
+        end
+        if ChunkMain.firstChunk and ChunkMain.secoundChunk then
+            self:startChangeAction()
+        end
+    elseif ChunkMain.firstChunk and ChunkMain.secoundChunk then -- 3
+        ChunkMain.firstChunk:clearStarState()
+        ChunkMain.secoundChunk:clearStarState()
+        target:setStateSelected()
+        ChunkMain.firstChunk = target
+        ChunkMain.secoundChunk = nil
+    end
+end
+6：判断选中的两个chunk是否满足交换条件，若满足则交换
+	1：交换位置
+	2：交换基础属性（行，列）
+	具体代码：
+--  开始交换
+function ChunkMain:startChangeAction()
+    local isCanMove = self:jugementMove()	--判断是否满足交换条件
+    if isCanMove then
+        local chunk01 = ChunkMain.firstChunk 
+        local chunk02 = ChunkMain.secoundChunk 
+        local sz = chunk01:getContentSize()
+        local time = 0.3
+        local pos01 = cc.p(0,0)
+        local pos02 = cc.p(0,0)
+        local isHor = false
+        local isAdd = false
+        -- 计算两个交换chunk的交换条件
+        if chunk01.hor == chunk02.hor then 
+            isHor = false
+            if chunk01.ver > chunk02.ver then
+                isAdd = false
+                pos01 = cc.p(chunk01.hor*sz.width-sz.width/2,(chunk01.ver-1)*sz.height-sz.height/2)
+                pos02 = cc.p(chunk02.hor*sz.width-sz.width/2,(chunk02.ver+1)*sz.height-sz.height/2)
+            else
+                isAdd = true
+                pos01 = cc.p(chunk01.hor*sz.width-sz.width/2,(chunk01.ver+1)*sz.height-sz.height/2)
+                pos02 = cc.p(chunk02.hor*sz.width-sz.width/2,(chunk02.ver-1)*sz.height-sz.height/2)
+            end
+        end
+        if chunk01.ver == chunk02.ver then 
+            isHor = true
+            if chunk01.hor > chunk02.hor then
+                isAdd = false
+                pos01 = cc.p((chunk01.hor-1)*sz.width-sz.width/2,chunk01.ver*sz.height-sz.height/2)
+                pos02 = cc.p((chunk02.hor+1)*sz.width-sz.width/2,chunk02.ver*sz.height-sz.height/2)
+            else
+                isAdd = true
+                pos01 = cc.p((chunk01.hor+1)*sz.width-sz.width/2,chunk01.ver*sz.height-sz.height/2)
+                pos02 = cc.p((chunk02.hor-1)*sz.width-sz.width/2,chunk02.ver*sz.height-sz.height/2)
+            end
+        end
+        self:playAction(chunk01,chunk02,pos01,pos02,isHor,isAdd)
+    end
+end
+--  播放移动交换动作
+function ChunkMain:playAction(chunk01,chunk02,pos01,pos02,isHor,isAdd,isNot)
+    self.tempIsAdd = isAdd
+    self.tempIsHor = isHor
+    self.tempPos01 = pos01
+    self.tempPos02 = pos02
+    local time = self.actionTime
+    local moveTo01 = cc.MoveTo:create(time,pos01)
+    local moveTo02 = cc.MoveTo:create(time,pos02)
+    local elastic01 = cc.EaseBackOut:create(moveTo01);
+    local elastic02 = cc.EaseBackOut:create(moveTo02);
+    local callback = cc.CallFunc:create(function() 
+        if not isNot then
+            self:startCheckChunk() 
+        else
+            self:clearChunk()
+        end
+    end)
+    local sequence = cc.Sequence:create(elastic01,callback)
+    chunk01:runAction(sequence)
+    chunk02:runAction(elastic02)
+    -- 交换基础属性（行，列）
+    local temp = self.chunkArr[chunk01.hor][chunk01.ver]
+    self.chunkArr[chunk01.hor][chunk01.ver] = self.chunkArr[chunk02.hor][chunk02.ver]
+    self.chunkArr[chunk02.hor][chunk02.ver] = temp
+    if isHor then
+        if isAdd then
+            chunk01.hor = chunk01.hor + 1
+            chunk02.hor = chunk02.hor - 1
+        else
+            chunk01.hor = chunk01.hor - 1
+            chunk02.hor = chunk02.hor + 1
+        end
+    else
+        if isAdd then
+            chunk01.ver = chunk01.ver + 1
+            chunk02.ver = chunk02.ver - 1
+        else
+            chunk01.ver = chunk01.ver - 1
+            chunk02.ver = chunk02.ver + 1
+        end
+    end
+end
+7：交换后执行步骤4
+	1：交换后没有满足消除条件的chunk列表，则交换回去（回到交换前，同样要交换位置和基础属性）
+	2：交换后有满足消除条件的chunk列表，则执行消除操作
+--  具体代码：		
+function ChunkMain:distoryChunk(chunkArr)
+    local resultArr = self:pickStarTable(chunkArr)
+    local len = table.getn(resultArr)
+    for i = 1,len do
+        resultArr[i]:setStateSelected()
+        local chunk = resultArr[i];
+        self.chunkArr[chunk.hor][chunk.ver] = nil
+        chunk:removeFromParent()
+    end
+--    消除后清空firstChunk,secoundChunk
+    if len > 0 then 
+        self:clearChunk()
+    end
+    self:reLayoutChunk()
 end
 
-function onTouchMove(touch,event)
-	//Todo
+8：移动：消除后重排chunk网格，遍历所有列检测空位上方是否有chunk，若有则将其掉下来
+	1：位置移动
+	2：基础属性重设（行，列）
+	具体代码：
+--执行消除后重新排列
+function ChunkMain:reLayoutChunk()
+    for i = 1,self.rangeHor do
+        for j = 1, self.rangeVer do
+            local chunkV = self.chunkArr[i][j]
+            if not chunkV then
+                self:checkVerticalMove(i,j)
+                break;
+            end
+        end
+    end
+end 
+--  交换并向下移动移动
+function ChunkMain:checkVerticalMove(hor,ver)
+    local count = 0
+    local time = self.actionTime
+    for i = ver,self.rangeVer do
+        local chunk = self.chunkArr[hor][i]
+        if not chunk then
+            count = count + 1
+        else
+            local moveTo = cc.MoveTo:create(time,cc.p(chunk:getPositionX(),chunk:getPositionY()-chunk:getContentSize().height*count))
+            local elastic01 = cc.EaseBackOut:create(moveTo);
+            chunk:runAction(elastic01)
+            self.chunkArr[hor][i].ver = self.chunkArr[hor][i].ver - count
+            self.chunkArr[hor][i-count] = self.chunkArr[hor][i]
+            self.chunkArr[hor][i] = nil
+        end
+    end
+    
+    local scheduler = cc.Director:getInstance():getScheduler() 
+    local mm = nil
+    mm = scheduler:scheduleScriptFunc(function() 
+        self:checkEmptyAndAddNewChunk()
+        scheduler:unscheduleScriptEntry(mm);
+    end, time, false)
+end
+9：补全：创建新chunk将所有空位填满
+	1：排列位置
+	2：基础属性（行列）
+	具体代码：
+--  补全
+function ChunkMain:checkEmptyAndAddNewChunk()
+    local time = 0.2
+    local count = 0
+    for i = 1,self.rangeHor do
+        count = 0
+        for j = 1,self.rangeVer do
+            local chunk = self.chunkArr[i][j]
+            if not chunk then
+                count = count + 1
+                local random = math.floor(math.random(1,#self.imgRes))
+                local chunk = Star:createStar(self.imgRes[random])
+                local sz = chunk:getContentSize()
+                chunk:setPosition(sz.width/2 + sz.width*(i-1),sz.height/2+sz.height*self.rangeVer+(count*sz.height))
+                self:runLayoutChunkAction(chunk,time,cc.p(sz.width/2 + sz.width*(i-1),sz.height/2+sz.height*(j-1)))
+                chunk:setHorAndVerCoordinate(i,j)
+                chunk:addTouchEventListener(function(target,state) self:chunkTouchEvent(target,state) end)
+                self.layer:addChild(chunk,5)
+                self.chunkArr[i][j] = chunk
+            end
+        end
+    end
+    local scheduler = cc.Director:getInstance():getScheduler() 
+    local mm = nil
+    mm = scheduler:scheduleScriptFunc(function() 
+        self:checkAllChunk()
+        scheduler:unscheduleScriptEntry(mm);
+    end, time, false)
+end
+10：重复步骤4，若有满足消除条件的chunk列表，则重复步骤8,9,10，这里主要看步骤9后部分的代码：
+local scheduler = cc.Director:getInstance():getScheduler() 
+local mm = nil
+mm = scheduler:scheduleScriptFunc(function() 
+    self:checkAllChunk()
+    scheduler:unscheduleScriptEntry(mm);
+end, time, false)
+11：以上步骤就完成了一次消除的完整流程，基本原理就是这样
+12：以上步骤中完整源码见以下链接
+http://zfsblog.blog.163.com/blog/static/231879079201721624926766/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Lua 之C2d星星消除（三）原理说明
+1：创建一个Star类，包括类型，所在行列属性
+2：以二维数组的形式排列存储star
+3：初始化基本属性，为star添加触摸事件
+4：查找与选中star相邻且同类型的star,并存储起来
+	1：以选中的star作为起点，查找相邻的上下左右四个方向的star，如果类型不相同则跳过，如果类型相同则存储到star列表中
+	2：以上下左右四个方向类型相同的star作为起点，重复步骤一；这里要加一个相邻同类型的star是否已经在star列表中的判断，如果已经存在则跳过，否则将其加入star列表
+	3：这里用到了递归方法，步骤一和步骤二反复执行下去，直到本次查找结束，及相邻的所有相同类型star全部找到
+	具体代码：
+--从四个方向查找相同类型的star
+function GameScene:checkByDirectionFour(star)//param当前选中的star
+    local tempArr = {}
+    local tempStar = nil
+    local starR = nil
+    --    right
+    local len = table.getn(tempArr)
+    if (star.hor+1) <= self.range then
+        local tempStar = self.starArr[star.hor+1][star.ver]
+        local starR = self:checkStarType(star,tempStar)
+        if starR then
+            if not self:jugementIsExist(starR) then --判断star是否已经存在同类型star列表中
+                table.insert(self.sameStar,1,starR)
+                self:checkByDirectionFour(starR)
+            end
+        end
+    end
+    --    left
+    len = table.getn(tempArr)
+    if (star.hor-1) >=1 then
+        tempStar = self.starArr[star.hor-1][star.ver]
+        starR = self:checkStarType(star,tempStar)
+        if starR then
+            if not self:jugementIsExist(starR) then
+                table.insert(self.sameStar,1,starR)
+                self:checkByDirectionFour(starR)
+            end
+        end
+    end
+    --    up
+    len = table.getn(tempArr)
+    if (star.ver+1) <= self.range then
+        tempStar = self.starArr[star.hor][star.ver+1]
+        starR = self:checkStarType(star,tempStar)
+        if starR then
+            if not self:jugementIsExist(starR) then
+                table.insert(self.sameStar,1,starR)
+                self:checkByDirectionFour(starR)
+            end
+        end
+    end
+    --    down
+    len = table.getn(tempArr)
+    if (star.ver-1) >= 1 then
+        tempStar = self.starArr[star.hor][star.ver-1]
+        starR = self:checkStarType(star,tempStar)
+        if starR then
+            if not self:jugementIsExist(starR) then
+                table.insert(self.sameStar,1,starR)
+                self:checkByDirectionFour(starR)
+            end
+        end
+    end
+    
+--    return tempArr
+end
+--判断sameStar(starlist)序列里是否已经存在star
+function GameScene:jugementIsExist(star)
+    local starArr = self.sameStar
+    for i = 1,#starArr do
+        if star.hor == starArr[i].hor and star.ver == starArr[i].ver and star.type == starArr[i].type then
+            return true
+        end
+    end
+    return false
+end
+5：将本次查找结果中的所有同类型的star消除，star列表长度需大于1
+6：消除后重新排列star
+7：竖直方向上：消除后遍历所有方块检查已消除star的上方是否还有方块，如果有则将上面的star往下移动，否则不做处理
+	若果有star需要往下移动，则将会做两件事情
+	1：位置移动，下方空出几个格子就向下移动多少距离
+	2：重设移动后star的行列属性
+	具体代码：
+--  交换并向下移动移动
+function GameScene:checkVerticalMove(hor,ver)
+    local count = 0
+    local time = 0.2
+    for i = ver,self.range do
+        local star = self.starArr[hor][i]
+        if not star then
+            count = count + 1
+        else
+            local moveTo = cc.MoveTo:create(time,cc.p(star:getPositionX(),star:getPositionY()-star:getContentSize().height*count))
+            star:runAction(moveTo) --重设位置
+            self.starArr[hor][i].ver = self.starArr[hor][i].ver - count --重设行列属性
+            self.starArr[hor][i-count] = self.starArr[hor][i]
+            self.starArr[hor][i] = nil
+        end
+    end
+end
+8：水平方向上：检查是否有空列，若果有则将空列右边的所有列向左移动
+	同样要做两件事情
+	1：位置移动
+	2：重设移动后star的行列属性
+	具体代码：
+首先遍历查找空列
+local count = 0
+for j = 1,self.range do
+    count = 0
+    for i = 1,self.range do
+        local star = self.starArr[j][i]
+        if not star then
+            count = count + 1
+            if count == 10 then -- 整列空缺
+                self:startHorizontalMove(j)
+            end
+        end 
+    end
+end
+--  交换并整列左右移动
+function GameScene:startHorizontalMove(hor)
+    hor = hor + 1
+    local count = 1
+    for i = hor,self.range do
+        for j = 1,self.range do
+            local star = self.starArr[hor][j]
+            if star then
+                local moveTo = cc.MoveTo:create(0.3,cc.p(star:getPositionX()-star:getContentSize().width*count,star:getPositionY()))
+                star:runAction(moveTo) --重设位置
+                self.starArr[hor][j].hor = self.starArr[hor][j].hor - count--重设行列属性
+                self.starArr[hor-count][j] = self.starArr[hor][j]
+                self.starArr[hor][j] = nil
+            end
+        end
+    end
 end
 
-function onTouchEnded(touch,event)
-	print("touch ended")
-	//恢复Sprite缩放比例为1:1
-	local target = event:getCurrentTarget()
-    target:setScale(1);
-end
-
-function onTouchCancelled(touch,event)
-	//Todo
-end
-
-5：最后为Sprite绑定listener事件
-这里有两种方法：
-其一、从Sprite自身获取事件发生器EventDispatcher
-local eventDispatcher = sp:getEventDispatcher()
-其二、从Director获取事件发生器EventDispatcher
-local eventDispatcher = cc.Director:getInstance():getEventDispatcher()
-然后实现绑定操作
-eventDispatcher:addEventListenerWithSceneGraphPriority(listener,layer)
-
-
-Lua 之C2d序列帧动画的两种实现方法
-本篇内容主要介绍两种序列帧动画的实现方法，两者的区别仅仅在使用的帧动画资源形式上有所不同，
-一个是直接使用本地的散图来实现，一个是使用打包后的整图通过spriteframecache精灵帧缓存资源实现
-一：首先介绍项目中最常用的一种实现方式，使用打包后的整图实现，及上述后一种。
-1：通过精灵帧缓存类SpriteFrameCache加载整图资源
-cc.SpriteFrameCache:getInstance():addSpriteFrames("star/blink.plist")
-2：实例化一个运行动画的精灵
-local sprite = cc.Sprite:create()
-3：将需要实现帧动画的精灵帧组装起来，这里要将其封装在一个table中，原因必须满足Animation类实例化的参数类型条件
-local frameArr = {}
-for i = 1, 3 do
-	local spriteFrame = cc.SpriteFrameCache:getInstance():getSpriteFrame("blink" .. i .. ".png")//这里返回的类型为SpriteFrame
-	frameArr[i] = spriteFrame
-	//table.insert(frameArr,1,spriteFrame) 同frame[i] = spriteFrame效果一样
-end
-4：实例化Animation和Animate类对象
-local animation = cc.Animation:createWithSpriteFrames(frameArr,0.2)//参数分别表示精灵帧集和播放动画的频率
-local animate = cc.Animate:create(animation)
-//animation与animate的区别就在于前者直接继承cc.Class而后者继承了cc.Action,Sprite使用方法runAction(action)运行动画，action必须继承自cc.Action
-5：运行动画,这里为了测试方便使用了cc.RepeatForever.create(action)永久执行
-sprite:runAction(cc.RepeatForever.create(animate))
-
-二：直接使用本地零散图片来实现
-1：实例化一个运行动画的精灵
-local sprite = cc.Sprite:create()
-2：实例化Animation类对象，并调用其方法addSpriteFrameWithFile(filepath)加载需要实现序列帧动画的本地小图
-local animation = cc.Animation:create()
-animation:addSpriteFrameWithFile("star/sp1.png")
-animation:addSpriteFrameWithFile("star/sp2.png")
-animation:addSpriteFrameWithFile("star/sp3.png")
-animation:addSpriteFrameWithFile("star/sp4.png")
-animation:addSpriteFrameWithFile("star/sp5.png")
-//设置播放动画的频率
-animation:setDelayPerUnit(0.2)
-3：实例化Animate类
-local animate = cc.Animate:create(animation)
-4：运行动画
-sprite:runAction(cc.RepeatForever.create(animate))
+9：以上步骤就完成了一次消除的完整流程，基本原理就是这样
+10：以上步骤中完整源码见以下链接
+http://zfsblog.blog.163.com/blog/static/231879079201711410313701/
 
 
 
 
 
-Lua 之C2d类创建的方法
-这里介绍两种在cocos2d-LUA中创建类的方法，这两种方法的唯一区别就在于是否继承了父类；两种的实现都是通过调用全局方法class("classname")来实现的，class()方法为引擎自带。
-一：首先来看下没有继承父类的创建方法
-1：定义FruitItem类并调用class方法
-local FruitItem = class("FruitItem")
-这里使用局部变量local的好处是可以避免全局变量滥用而引发的内存泄漏,项目中尽可能的少用全局变量
-2：重写构造函数ctor,ctor必须重写，因为在使用该类的地方，创建对象的时候该方法必须被调用，否则程序会出现异常
-function FruitItem:ctor(param)
-	//todo
-	local sprite = cc.Sprite:create("HelloWorld.png")
-	return sprite
-end
-参数param可以是任意类型，在创建FruitItem对象的时候的new方法里直接传递
-3：将该类还回，这里一定要还回FruitItem，不然在外部加载该lua文件的时候将会得到nil
-return FruitItem
-4：在其他lua文件中实例化使用该类，使用FruitItem的代码不能跟FruitItem在同一个lua文件中
-local FruitItem = import("src.app.views.FruitItem")//这里的FruitItem是lua文件的名称，及FruitItem.lua
-local fruitItem = FruitItem:new(parm)
-fruitItem:setPosition(num,num)
 
-二：使用匿名函数继承其他类
-1：定义FruitItem类并调用class方法，并传递第二次参数，参数为匿名函数，在匿名函数的实现部分实例化并返回要继承的类或类型
-local FruitItem = class("FruitItem",function(param)
-	local sprite = cc.Sprite:create("res/HelloWorld.png")
-	sprite:setPosition(param)
-	return sprite
-end)
-2：重写构造函数ctor
-function FruitItem:ctor(param)
-	//todo
-end
-3：同样将该类返回
-return FruitItem
-4：使用该类
-local FruitItem = import("src.app.views.FruitItem")
-local fruitItem = FruitItem:new(parm)
-这里fruitItem继承了cc.Sprite的所有属性和方法，在FruitItem中还可以进行进一步的扩展
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
