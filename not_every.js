@@ -584,10 +584,6 @@ LUA基础
 LUA-Cocos2d
 星星消除，三消游戏
 
-
-
-
-
 20170314
 1：聊天屏蔽事件修改（暂时还是用标志变量来做吧）
 // 2：沉余代码删除
@@ -613,19 +609,195 @@ LUA-Cocos2d
 // 1：怎么区分连服跟跨服多人副本，type都是6
 // 2：连服的消息不太看得懂，创建队伍，开始副本的消息貌似木有
 
-
 20170315
 1：对接连服多人副本zoneteam
 
 20170316
-// 角色，邮件，聊天，好友，摇杆，改名，头衔，称号，战甲，跨服多人副本，连服多人副本
+// 角色，邮件，聊天，好友，摇杆，改名，头衔，称号，战甲，====>跨服多人副本，连服多人副本
+
+1：摇杆初始点击范围控制（在控制范围内，点在哪就让摇杆初始位置移动到哪）
+(w:550,h:400)感觉合适
+2：请求队伍列表接口（连服）
+
+/********************************************************************/
+1：修改聊天选择多个物品时主界面出现的Bug
+2：聊天屏蔽事件修改（暂时还是用标志变量来做吧）
+3：解决跨服多人副本中的问题
+4：玩家简要信息展示接口
+5：优化装备穿戴
+6：连服多人副本（副本列表，创建队伍消息，队伍列表消息，离开队伍消息）
+7：连服多人副本UI内部代码的一些处理
+8：摇杆初始点击范围控制（在控制范围内，点在哪就让摇杆初始位置移动到哪）
+
+20170320
+1：摇杆优化（一定范围内让底盘出现在点击起点）
+2：连服continue
+
+20170321
+连服continue
+// 1：离开队伍
+// 2：加入队伍
+// 3：邀请玩家
+
+20170322
+连服continue
+// 1：换肤
+// 2：好友申请列表处理
+// 3：进入副本，退出副本
+20170323
+连服continue
+// 1：副本中的操作处理
+// 2：调一下跨服的流程
+// 3：进入副本倒计时
+
+20170324
+1：优化多人副本
+// 2：连服活动奖励
+// 3：加入限制条件
+4：处理离线聊天消息ResOfflineChatCountMessage
+// 5：附近玩家处理（当前地图在线玩家）
+// 6：帮会答题UI优化
+
+本周：
+// 0：摇杆优化（一定范围内让底盘出现在点击起点）
+// 连服
+// 1：离开队伍
+// 2：加入队伍
+// 3：邀请玩家
+// 4：换肤
+// 5：好友申请列表处理
+// 6：进入副本，退出副本
+// 7：副本中的操作处理
+// 8：调一下跨服的流程
+// 9：进入副本倒计时
+// 10：优化多人副本
+// 11：连服活动奖励
+// 12：加入限制条件
+// 13：附近玩家处理（当前地图在线玩家）
+// 14：帮会答题UI优化
+////////////////////
+20170327
+// 1：处理离线聊天消息ResOfflineChatCountMessage
+
+20170328
+优化
+// 1：优化判断玩家是否在副本中的方法
+// 2：修改副本中玩家组队面板（统一做到任务面板上）
+// 3：聊天mgr中的shortcut使用player_mgr中的
+
+20170329
+// 1：副本组队公告
+
+20170330
+// 1：副本组队公告
+// 2：优化
+
+
+20170331
+// 1：多人副本细节优化
+// 2：聊天中的穿透和层次处理
+
+20170401
+本周：
+// 1：处理离线聊天消息ResOfflineChatCountMessage
+// 2：优化判断玩家是否在副本中的方法
+// 3：修改副本中玩家组队面板（统一做到任务面板上）
+// 4：聊天mgr中的shortcut使用player_mgr中的
+// 5：跨服多人副本组队公告
+// 6：连服多人副本组队公告
+// 7：多人副本细节优化
+// 8：聊天中的穿透和层次处理
+// 9：优化跨服多人副本，从聊天中组队接口加入队伍后多人副本面板中的信息初始化优化
+
+
+20170405
+// 1；取消表情聊天面板中查看装备详细信息
+// 2：优化摇杆的出现时机
+// 3：优化以前的代码
+//    1：邮件
+//    2：好友
+//    3：添加好友
+// 4：聊天输入框位置调整
 
+20170406
+1：优化代码
+	// 1：多人副本
+	2：战甲
+	3：称号，头衔，改名
+// 2：聊天主界面连发多个相同装备优化（截取有误）
+	
+20170407
+1：UI替换
+	1：多人副本
+	2：角色界面相关
+2：优化代码
 
 
+角色面板问题修改：
+// 1）点击获取装备弹出来的面板 不对.
+// 2）点击【改名】进入输入新名字的时候输入框大小不对
+// 3）进图人物改名面板时输入框有时候会出现2个重叠的【请输入新名称】
+// 4）人物改名所需消耗的道具没有TIPS  道具ID：102
+// 5）打开头衔面板的时候无需提示： 你没有头衔
+// 6）头衔面板晋升条件 上面的战斗力 与玩家战斗力不对应
+// 7）默认是没有头衔的
+// 8）头衔晋升令牌里的道具点击没有TIPS
+// 9）头衔属性显示错误（与配置表不对应）！
+// 10）玩家角色面板 上的战斗力不对
 
+1；取消表情聊天面板中查看装备详细信息
+2：优化摇杆的出现时机
+3：优化以前的代码
+   1：邮件
+   2：好友
+   3：添加好友
+4：聊天输入框位置调整
+5：优化代码
+	1：多人副本
+	2：称号，头衔，改名
+6：聊天主界面连发多个相同装备优化（截取有误）
+7：UI替换
+	1：多人副本
+	2：角色界面相关
+8：优化代码
+角色面板BUG修改（彭东湖提供）：
+1）点击获取装备弹出来的面板 不对.
+2）点击【改名】进入输入新名字的时候输入框大小不对
+3）进图人物改名面板时输入框有时候会出现2个重叠的【请输入新名称】
+4）人物改名所需消耗的道具没有TIPS  道具ID：102
+5）打开头衔面板的时候无需提示： 你没有头衔
+6）头衔面板晋升条件 上面的战斗力 与玩家战斗力不对应
+7）默认是没有头衔的
+8）头衔晋升令牌里的道具点击没有TIPS
+9）头衔属性显示错误（与配置表不对应）！
+10）玩家角色面板 上的战斗力不对
 
 
+下周工作内容
+邮件问题（彭东湖提供）：
+1）邮件上显示的时间不正确 
+2）点击邮件上的道具ICON 需要弹出道具对应的TIPS
+3）邮件上的道具没有显示对应的道具数量
+4）邮件上的道具没有显示是否是绑定道具
+5）没有道具奖励的邮件会  会显示 道具icon   经过领取其他邮件或者选择其他有道具奖励的邮件的操作后？
+6）全选删除邮件的时候总会剩余一封邮件
 
+背包问题（彭东湖提供）：
+1）背包格子下面溢出界面
+2）主按钮 里面的字体没居中 
+3）元宝 与 绑定元宝 框的 美术资源不对 
+4）选中格子的效果美术资源不对，内部会多 好几个框？
+5）背包格子 道具叠加数量的位置不对（与美术沟通调整）
+6）绑定道具的锁的位置及大小不对（与美术沟通调整）
+7）材料分类不对
+    进阶材料为：道具主类型为2的
+    图鉴为：道具主类型为23的
+    宝石位：道具主类型为16的
+    礼包为：道具主类型为4的
+    装备为：道具主类型为1、31、32、33、34、35的
+    技能书为：道具主类型为 13、22的
+8）缺失 装备 、技能书2个标签页 
+9）背包没正确显示元宝数及绑定元宝数 
 
 
 
@@ -650,6 +822,10 @@ LUA-Cocos2d
 
 
 
+棋牌游戏创业
+疼惜  11:34:21
+81759779
+他的QQ
 
 
 
@@ -660,8 +836,6 @@ LUA-Cocos2d
 
 
 
-准备进入mapId:20002
-准备进入mapId:10601
 
 
 
@@ -672,480 +846,176 @@ LUA-Cocos2d
 
 
 
+收货人信息
+收货人： 周方胜
+地址： 四川成都市高新区城区天府软件园G区G8-8楼成都墨龙科技
+手机号码： 18227674277
 
-Lua 之C2d三消游戏（二）原理说明
-1：创建一个Chunk类，包括类型，所在行列属性
-2：以二维数组的形式排列存储star
-3：初始化基本属性，为chunk添加触摸事件
-4：查找所有chunk，将相邻且同类型的chunk赛选出来,并存储起来
-	1：遍历每一列，循环从每一列的前三个开始循环
-	2：遍历每一行，循环从每一行的前三个开始循环
-	3：必须至少有三个相邻且类型相同
-	具体代码：
---  检测所有chunk，将满足条件的chunk赛选出来
-function ChunkMain:checkAllChunk()
-    -- 垂直方向检查
-    local sameChunkArr = {}
-    for i = 1, self.rangeHor do
-        local tempArr = {}
-        for j = 1, self.rangeVer-2 do
-            local chunk01 = self.chunkArr[i][j]
-            local chunk02 = self.chunkArr[i][j+1]
-            local chunk03 = self.chunkArr[i][j+2]
-            if chunk01 and chunk02 and chunk03 then
-                if chunk01.type == chunk02.type and chunk01.type == chunk03.type then
-                    table.insert(tempArr,1,chunk01)    -- 这里要单独存一个table
-                    table.insert(tempArr,1,chunk02)
-                    table.insert(tempArr,1,chunk03)
-                    table.insert(sameChunkArr,1,tempArr)
-                end
-            end
-        end
-    end
-    -- 水平方向检查
-    for j = 1, self.rangeVer do
-        local tempArr = {}
-        for i = 1, self.rangeHor-2 do
-            local chunk01 = self.chunkArr[i][j]
-            local chunk02 = self.chunkArr[i+1][j]
-            local chunk03 = self.chunkArr[i+2][j]
-            if chunk01 and chunk02 and chunk03 then
-                if chunk01.type == chunk02.type and chunk01.type == chunk03.type then
-                    table.insert(tempArr,1,chunk01)    -- 这里要单独存一个table
-                    table.insert(tempArr,1,chunk02)
-                    table.insert(tempArr,1,chunk03)
-                    table.insert(sameChunkArr,1,tempArr)
-                end
-            end
-        end
-    end
-    local chunkArr = {}
-    for i = 1, table.getn(sameChunkArr) do
-        local tempChunk = sameChunkArr[i]
-        for j = 1, table.getn(tempChunk) do
-            table.insert(chunkArr,1,tempChunk[j])
-        end
-    end
-    self:distoryChunk(chunkArr)
-    if table.getn(sameChunkArr) < 1 then
-        self:reSetChunkPos()
-    end
-end
-5：选择chunk逻辑,这里要记录选择的前两个chunk，设为firstChunk,secoundChunk，设当前选中的chunk为target
-	1：若firstChunk为空，则赋值target
-	2：若firstChunk不为空，且secoundChunk为空
-		1：若target == firstChunk,将firstChunk设为空
-		2：若target ~= firstChunk,则赋值secoundChunk = target
-	3：若两者都不为空，则将target赋值给firstChunk,将secoundChunk设为空
-	具体代码：
---  选中chunk逻辑
-function ChunkMain:handleSelectedChunk(target)
-    if not ChunkMain.firstChunk then -- 1
-        ChunkMain.firstChunk = target
-        target:setStateSelected()
-    elseif ChunkMain.firstChunk and not ChunkMain.secoundChunk then  -- 2
-        if ChunkMain.firstChunk.hor == target.hor and ChunkMain.firstChunk.ver == target.ver then --两次选中同一个chunk,则取消选择
-            target:clearStarState()
-            ChunkMain.firstChunk = nil
-        else
-            target:setStateSelected()
-            ChunkMain.secoundChunk = target
-        end
-        if ChunkMain.firstChunk and ChunkMain.secoundChunk then
-            self:startChangeAction()
-        end
-    elseif ChunkMain.firstChunk and ChunkMain.secoundChunk then -- 3
-        ChunkMain.firstChunk:clearStarState()
-        ChunkMain.secoundChunk:clearStarState()
-        target:setStateSelected()
-        ChunkMain.firstChunk = target
-        ChunkMain.secoundChunk = nil
-    end
-end
-6：判断选中的两个chunk是否满足交换条件，若满足则交换
-	1：交换位置
-	2：交换基础属性（行，列）
-	具体代码：
---  开始交换
-function ChunkMain:startChangeAction()
-    local isCanMove = self:jugementMove()	--判断是否满足交换条件
-    if isCanMove then
-        local chunk01 = ChunkMain.firstChunk 
-        local chunk02 = ChunkMain.secoundChunk 
-        local sz = chunk01:getContentSize()
-        local time = 0.3
-        local pos01 = cc.p(0,0)
-        local pos02 = cc.p(0,0)
-        local isHor = false
-        local isAdd = false
-        -- 计算两个交换chunk的交换条件
-        if chunk01.hor == chunk02.hor then 
-            isHor = false
-            if chunk01.ver > chunk02.ver then
-                isAdd = false
-                pos01 = cc.p(chunk01.hor*sz.width-sz.width/2,(chunk01.ver-1)*sz.height-sz.height/2)
-                pos02 = cc.p(chunk02.hor*sz.width-sz.width/2,(chunk02.ver+1)*sz.height-sz.height/2)
-            else
-                isAdd = true
-                pos01 = cc.p(chunk01.hor*sz.width-sz.width/2,(chunk01.ver+1)*sz.height-sz.height/2)
-                pos02 = cc.p(chunk02.hor*sz.width-sz.width/2,(chunk02.ver-1)*sz.height-sz.height/2)
-            end
-        end
-        if chunk01.ver == chunk02.ver then 
-            isHor = true
-            if chunk01.hor > chunk02.hor then
-                isAdd = false
-                pos01 = cc.p((chunk01.hor-1)*sz.width-sz.width/2,chunk01.ver*sz.height-sz.height/2)
-                pos02 = cc.p((chunk02.hor+1)*sz.width-sz.width/2,chunk02.ver*sz.height-sz.height/2)
-            else
-                isAdd = true
-                pos01 = cc.p((chunk01.hor+1)*sz.width-sz.width/2,chunk01.ver*sz.height-sz.height/2)
-                pos02 = cc.p((chunk02.hor-1)*sz.width-sz.width/2,chunk02.ver*sz.height-sz.height/2)
-            end
-        end
-        self:playAction(chunk01,chunk02,pos01,pos02,isHor,isAdd)
-    end
-end
---  播放移动交换动作
-function ChunkMain:playAction(chunk01,chunk02,pos01,pos02,isHor,isAdd,isNot)
-    self.tempIsAdd = isAdd
-    self.tempIsHor = isHor
-    self.tempPos01 = pos01
-    self.tempPos02 = pos02
-    local time = self.actionTime
-    local moveTo01 = cc.MoveTo:create(time,pos01)
-    local moveTo02 = cc.MoveTo:create(time,pos02)
-    local elastic01 = cc.EaseBackOut:create(moveTo01);
-    local elastic02 = cc.EaseBackOut:create(moveTo02);
-    local callback = cc.CallFunc:create(function() 
-        if not isNot then
-            self:startCheckChunk() 
-        else
-            self:clearChunk()
-        end
-    end)
-    local sequence = cc.Sequence:create(elastic01,callback)
-    chunk01:runAction(sequence)
-    chunk02:runAction(elastic02)
-    -- 交换基础属性（行，列）
-    local temp = self.chunkArr[chunk01.hor][chunk01.ver]
-    self.chunkArr[chunk01.hor][chunk01.ver] = self.chunkArr[chunk02.hor][chunk02.ver]
-    self.chunkArr[chunk02.hor][chunk02.ver] = temp
-    if isHor then
-        if isAdd then
-            chunk01.hor = chunk01.hor + 1
-            chunk02.hor = chunk02.hor - 1
-        else
-            chunk01.hor = chunk01.hor - 1
-            chunk02.hor = chunk02.hor + 1
-        end
-    else
-        if isAdd then
-            chunk01.ver = chunk01.ver + 1
-            chunk02.ver = chunk02.ver - 1
-        else
-            chunk01.ver = chunk01.ver - 1
-            chunk02.ver = chunk02.ver + 1
-        end
-    end
-end
-7：交换后执行步骤4
-	1：交换后没有满足消除条件的chunk列表，则交换回去（回到交换前，同样要交换位置和基础属性）
-	2：交换后有满足消除条件的chunk列表，则执行消除操作
---  具体代码：		
-function ChunkMain:distoryChunk(chunkArr)
-    local resultArr = self:pickStarTable(chunkArr)
-    local len = table.getn(resultArr)
-    for i = 1,len do
-        resultArr[i]:setStateSelected()
-        local chunk = resultArr[i];
-        self.chunkArr[chunk.hor][chunk.ver] = nil
-        chunk:removeFromParent()
-    end
---    消除后清空firstChunk,secoundChunk
-    if len > 0 then 
-        self:clearChunk()
-    end
-    self:reLayoutChunk()
-end
-
-8：移动：消除后重排chunk网格，遍历所有列检测空位上方是否有chunk，若有则将其掉下来
-	1：位置移动
-	2：基础属性重设（行，列）
-	具体代码：
---执行消除后重新排列
-function ChunkMain:reLayoutChunk()
-    for i = 1,self.rangeHor do
-        for j = 1, self.rangeVer do
-            local chunkV = self.chunkArr[i][j]
-            if not chunkV then
-                self:checkVerticalMove(i,j)
-                break;
-            end
-        end
-    end
-end 
---  交换并向下移动移动
-function ChunkMain:checkVerticalMove(hor,ver)
-    local count = 0
-    local time = self.actionTime
-    for i = ver,self.rangeVer do
-        local chunk = self.chunkArr[hor][i]
-        if not chunk then
-            count = count + 1
-        else
-            local moveTo = cc.MoveTo:create(time,cc.p(chunk:getPositionX(),chunk:getPositionY()-chunk:getContentSize().height*count))
-            local elastic01 = cc.EaseBackOut:create(moveTo);
-            chunk:runAction(elastic01)
-            self.chunkArr[hor][i].ver = self.chunkArr[hor][i].ver - count
-            self.chunkArr[hor][i-count] = self.chunkArr[hor][i]
-            self.chunkArr[hor][i] = nil
-        end
-    end
-    
-    local scheduler = cc.Director:getInstance():getScheduler() 
-    local mm = nil
-    mm = scheduler:scheduleScriptFunc(function() 
-        self:checkEmptyAndAddNewChunk()
-        scheduler:unscheduleScriptEntry(mm);
-    end, time, false)
-end
-9：补全：创建新chunk将所有空位填满
-	1：排列位置
-	2：基础属性（行列）
-	具体代码：
---  补全
-function ChunkMain:checkEmptyAndAddNewChunk()
-    local time = 0.2
-    local count = 0
-    for i = 1,self.rangeHor do
-        count = 0
-        for j = 1,self.rangeVer do
-            local chunk = self.chunkArr[i][j]
-            if not chunk then
-                count = count + 1
-                local random = math.floor(math.random(1,#self.imgRes))
-                local chunk = Star:createStar(self.imgRes[random])
-                local sz = chunk:getContentSize()
-                chunk:setPosition(sz.width/2 + sz.width*(i-1),sz.height/2+sz.height*self.rangeVer+(count*sz.height))
-                self:runLayoutChunkAction(chunk,time,cc.p(sz.width/2 + sz.width*(i-1),sz.height/2+sz.height*(j-1)))
-                chunk:setHorAndVerCoordinate(i,j)
-                chunk:addTouchEventListener(function(target,state) self:chunkTouchEvent(target,state) end)
-                self.layer:addChild(chunk,5)
-                self.chunkArr[i][j] = chunk
-            end
-        end
-    end
-    local scheduler = cc.Director:getInstance():getScheduler() 
-    local mm = nil
-    mm = scheduler:scheduleScriptFunc(function() 
-        self:checkAllChunk()
-        scheduler:unscheduleScriptEntry(mm);
-    end, time, false)
-end
-10：重复步骤4，若有满足消除条件的chunk列表，则重复步骤8,9,10，这里主要看步骤9后部分的代码：
-local scheduler = cc.Director:getInstance():getScheduler() 
-local mm = nil
-mm = scheduler:scheduleScriptFunc(function() 
-    self:checkAllChunk()
-    scheduler:unscheduleScriptEntry(mm);
-end, time, false)
-11：以上步骤就完成了一次消除的完整流程，基本原理就是这样
-12：以上步骤中完整源码见以下链接
-http://zfsblog.blog.163.com/blog/static/231879079201721624926766/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Lua 之C2d星星消除（三）原理说明
-1：创建一个Star类，包括类型，所在行列属性
-2：以二维数组的形式排列存储star
-3：初始化基本属性，为star添加触摸事件
-4：查找与选中star相邻且同类型的star,并存储起来
-	1：以选中的star作为起点，查找相邻的上下左右四个方向的star，如果类型不相同则跳过，如果类型相同则存储到star列表中
-	2：以上下左右四个方向类型相同的star作为起点，重复步骤一；这里要加一个相邻同类型的star是否已经在star列表中的判断，如果已经存在则跳过，否则将其加入star列表
-	3：这里用到了递归方法，步骤一和步骤二反复执行下去，直到本次查找结束，及相邻的所有相同类型star全部找到
-	具体代码：
---从四个方向查找相同类型的star
-function GameScene:checkByDirectionFour(star)//param当前选中的star
-    local tempArr = {}
-    local tempStar = nil
-    local starR = nil
-    --    right
-    local len = table.getn(tempArr)
-    if (star.hor+1) <= self.range then
-        local tempStar = self.starArr[star.hor+1][star.ver]
-        local starR = self:checkStarType(star,tempStar)
-        if starR then
-            if not self:jugementIsExist(starR) then --判断star是否已经存在同类型star列表中
-                table.insert(self.sameStar,1,starR)
-                self:checkByDirectionFour(starR)
-            end
-        end
-    end
-    --    left
-    len = table.getn(tempArr)
-    if (star.hor-1) >=1 then
-        tempStar = self.starArr[star.hor-1][star.ver]
-        starR = self:checkStarType(star,tempStar)
-        if starR then
-            if not self:jugementIsExist(starR) then
-                table.insert(self.sameStar,1,starR)
-                self:checkByDirectionFour(starR)
-            end
-        end
-    end
-    --    up
-    len = table.getn(tempArr)
-    if (star.ver+1) <= self.range then
-        tempStar = self.starArr[star.hor][star.ver+1]
-        starR = self:checkStarType(star,tempStar)
-        if starR then
-            if not self:jugementIsExist(starR) then
-                table.insert(self.sameStar,1,starR)
-                self:checkByDirectionFour(starR)
-            end
-        end
-    end
-    --    down
-    len = table.getn(tempArr)
-    if (star.ver-1) >= 1 then
-        tempStar = self.starArr[star.hor][star.ver-1]
-        starR = self:checkStarType(star,tempStar)
-        if starR then
-            if not self:jugementIsExist(starR) then
-                table.insert(self.sameStar,1,starR)
-                self:checkByDirectionFour(starR)
-            end
-        end
-    end
-    
---    return tempArr
-end
---判断sameStar(starlist)序列里是否已经存在star
-function GameScene:jugementIsExist(star)
-    local starArr = self.sameStar
-    for i = 1,#starArr do
-        if star.hor == starArr[i].hor and star.ver == starArr[i].ver and star.type == starArr[i].type then
-            return true
-        end
-    end
-    return false
-end
-5：将本次查找结果中的所有同类型的star消除，star列表长度需大于1
-6：消除后重新排列star
-7：竖直方向上：消除后遍历所有方块检查已消除star的上方是否还有方块，如果有则将上面的star往下移动，否则不做处理
-	若果有star需要往下移动，则将会做两件事情
-	1：位置移动，下方空出几个格子就向下移动多少距离
-	2：重设移动后star的行列属性
-	具体代码：
---  交换并向下移动移动
-function GameScene:checkVerticalMove(hor,ver)
-    local count = 0
-    local time = 0.2
-    for i = ver,self.range do
-        local star = self.starArr[hor][i]
-        if not star then
-            count = count + 1
-        else
-            local moveTo = cc.MoveTo:create(time,cc.p(star:getPositionX(),star:getPositionY()-star:getContentSize().height*count))
-            star:runAction(moveTo) --重设位置
-            self.starArr[hor][i].ver = self.starArr[hor][i].ver - count --重设行列属性
-            self.starArr[hor][i-count] = self.starArr[hor][i]
-            self.starArr[hor][i] = nil
-        end
-    end
-end
-8：水平方向上：检查是否有空列，若果有则将空列右边的所有列向左移动
-	同样要做两件事情
-	1：位置移动
-	2：重设移动后star的行列属性
-	具体代码：
-首先遍历查找空列
-local count = 0
-for j = 1,self.range do
-    count = 0
-    for i = 1,self.range do
-        local star = self.starArr[j][i]
-        if not star then
-            count = count + 1
-            if count == 10 then -- 整列空缺
-                self:startHorizontalMove(j)
-            end
-        end 
-    end
-end
---  交换并整列左右移动
-function GameScene:startHorizontalMove(hor)
-    hor = hor + 1
-    local count = 1
-    for i = hor,self.range do
-        for j = 1,self.range do
-            local star = self.starArr[hor][j]
-            if star then
-                local moveTo = cc.MoveTo:create(0.3,cc.p(star:getPositionX()-star:getContentSize().width*count,star:getPositionY()))
-                star:runAction(moveTo) --重设位置
-                self.starArr[hor][j].hor = self.starArr[hor][j].hor - count--重设行列属性
-                self.starArr[hor-count][j] = self.starArr[hor][j]
-                self.starArr[hor][j] = nil
-            end
-        end
-    end
-end
-
-9：以上步骤就完成了一次消除的完整流程，基本原理就是这样
-10：以上步骤中完整源码见以下链接
-http://zfsblog.blog.163.com/blog/static/231879079201711410313701/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+使用Python，可以编写出很多东西，
+如：Web应用程序，桌面应用程序，游戏。它可以作为完整的脚本解释器和开发平台。
+
+
+
+网络爬虫是一个自动提取网页的程序
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+lua之元表(metatable)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+小陶car(License plate):55us9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+一：LUA编程
+1：lua继承
+	1：概念：lua是一种小巧的脚本语言，作者是巴西人
+	2：语法：
+		1：命名规则
+		2：类型与值，nil,boolean,number,string,function,table,userdata,thread(线程)
+		3：表达式，算数运算符，关系运算符，逻辑运算符，字符串连接操作符
+		4：语句，赋值语句，局部变量与块，if,for,范围for,repeat,function,闭包function
+2：lua进阶
+	1：Metatable元表，元表方法:__add,__index,__newindex...
+	2：封装——类
+	3：继承
+	4：多态：Lua不支持函数多态，而指针的多态，由于Lua动态类型的特性，本身就能支持
+3：lua教程
+	1：基本语法
+	2：变量
+	3：数据类型
+	4：运算符
+	5：循环
+	6：决策
+	7：函数
+	8：字符串
+	9：数组
+	10：迭代器
+	11：表格
+	12：模块
+	13：元表
+	14：协同程序
+	15：文件I/O
+	16：错误处理
+	17：调试
+	18：垃圾收集
+	19：面向对象OOP
+	20：Web编程
+	21：数据库/MySOL操作
+	22：游戏编程
+	23：标准库
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1242,10 +1112,6 @@ http://zfsblog.blog.163.com/blog/static/231879079201711410313701/
 乱花渐欲迷人眼 浅草才能没马蹄
 
 总分总
-
-
-
-
 
 
 
