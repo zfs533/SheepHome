@@ -94,7 +94,7 @@ ui：1、聊天主界面；2、不含头像显示的item；3、包含头像显�
 4：帮会系统（优先）
 5：VIP系统
 哪个UI先出来就先做哪个
-
+ 
 
 
 20161121工作内容：
@@ -1356,6 +1356,93 @@ BUG修改
 
 
 
+20170726
+// 修改：战甲
+// 战甲 资源配置 改成了global
+// 手游也改一下 常量表 ID：1029
+// 其他逻辑不变
+20170802
+物品拾取改为一键拾取，并有飞入背包的动作
+设置，自动拾取，音量调整
+
+
+
+
+
+
+打印内存占用
+var mm = cc.Director.getInstance().getTextureCache().getCachedTextureInfo();
+cc.log("mm "+mm);	
+
+
+var url = cc.url.raw( 'resources/HeroDefault.json' )
+cc.loader.load( url, function( err, res)
+{
+    // 如果有異常會在 err 變數顯示, 否則在res就會是讀進來的json object
+    cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify( res ) );
+});
+
+
+
+20170906
+// 1:掉落归属
+// 2:与后端调试光羽，貌似还有问题，不光是改个名字显示个模型那么简单
+// 3:禅道继续解决，加快节奏
+4:护送全改(先做功能_黄埔服务器)
+
+20170907
+// 1:装备卸下功能
+
+
+20170913
+// 聊天界面打开会卡
+
+
+
+20170926
+// 1：模型展示做成组件(统一接口)
+// 2：掉落归属刷新逻辑优化
+// 3：掉落归属移除逻辑优化，在玩家移除时检测
+// 4：天气系统用离子系统实现，图标以上传(项目中离子是手动实现的)
+// 5：称号展示改为正常
+// 6：去掉对象池清除
+
+
+
+
+20171110
+函数式编程:简单说，"函数式编程"是一种"编程范式"（programming paradigm），也就是如何编写程序的方法论。
+它属于"结构化编程"的一种，主要思想是把运算过程尽量写成一系列嵌套的函数调用
+
+
+// cc.logToWebPage 和 cc.logList 
+
+
+
+
+
+
+MySQL 创建数据表 CREATE TABLE table_name (column_name column_type);
+MySQL 删除数据表 DROP TABLE table_name ;
+MySQL 插入数据 INSERT INTO table_name ( field1, field2,...fieldN )
+                       VALUES
+                       ( value1, value2,...valueN );
+MySQL 查询数据 SELECT column_name,column_name
+				FROM table_name
+				[WHERE Clause]
+				[OFFSET M ][LIMIT N]
+MySQL WHERE 子句 SELECT field1, field2,...fieldN FROM table_name1, table_name2...
+				[WHERE condition1 [AND [OR]] condition2.....
+				以下实例将读取 runoob_tbl 表中 runoob_author 字段值为 Sanjay 的所有记录：
+				SELECT * from runoob_tbl WHERE runoob_author='菜鸟教程';
+MySQL UPDATE 查询 UPDATE table_name SET field1=new-value1, field2=new-value2
+				[WHERE Clause]
+MySQL DELETE 语句 DELETE FROM table_name [WHERE Clause]
+MySQL LIKE 子句 SELECT field1, field2,...fieldN 
+				FROM table_name
+				WHERE field1 LIKE condition1 [AND [OR]] filed2 = 'somevalue'
+				以下是我们将 runoob_tbl 表中获取 runoob_author 字段中以 COM 为结尾的的所有记录：
+				mysql> SELECT * from runoob_tbl  WHERE runoob_author LIKE '%COM';
 
 
 
@@ -1366,26 +1453,128 @@ BUG修改
 
 
 
+var scene = new cc.Scene();
+var size = cc.size(cc.winSize.width/2,cc.winSize.height/2+250);
+
+var lc = cc.LayerColor.create(cc.color.RED);
+scene.addChild(lc);
 
 
-周方胜
-18227674277
-510923199010165277
+var VSH=null;
+var FSH=null;
+//contains alpha channal
+var UseETC1Data = function(sprite)
+{
+//    	        if(cc.sys.os == cc.sys.OS_ANDROID)
+    if(!VSH)
+    {
+        var vsh = "\n" +
+                  "attribute vec4 a_position;\n" +
+                  "attribute vec2 a_texCoord;\n" +
+                  "attribute vec4 a_color;\n" +
+                  "varying vec4 v_fragmentColor;\n" +
+                  "varying vec2 v_texCoord;\n" +
+                  "varying vec2 v_alphaCoord;\n" +
+                  "void main()\n"+
+                  "\n{\n"+
+                  "gl_Position = CC_PMatrix * a_position;\n"+
+                  "v_texCoord = a_texCoord * vec2(1.0, 1.0);\n"+
+                  "v_alphaCoord = a_texCoord + vec2(0.0, 0.5);\n"+
+                  "}";
+        var fsh = "\n" +
+                  "varying vec2 v_texCoord;\n"+
+                  "varying vec4 v_fragmentColor;\n"+
+                  "varying vec2 v_alphaCoord;\n"+
+                  "void main()\n"+
+                  "\n{\n"+
+                  "vec4 v4Colour = texture2D(CC_Texture0, v_texCoord);\n"+
+                  "v4Colour.a = texture2D(CC_Texture0, v_alphaCoord).r;\n"+
+                  "v4Colour.xyz = v4Colour.xyz * v4Colour.a;\n"+
+                  "gl_FragColor = v4Colour;\n" +
+                  "}";
+       VSH = vsh;
+       FSH = fsh;
+    }
+    var shader = new cc.GLProgram();
+    shader.initWithString(VSH, FSH);
+    shader.addAttribute(cc.ATTRIBUTE_NAME_POSITION, cc.VERTEX_ATTRIB_POSITION);
+    shader.addAttribute(cc.ATTRIBUTE_NAME_TEX_COORD, cc.VERTEX_ATTRIB_TEX_COORDS);
+    shader.addAttribute(cc.ATTRIBUTE_NAME_COLOR, cc.VERTEX_ATTRIB_COLOR);
+    shader.link();
+    shader.updateUniforms();
+    sprite.shaderProgram = shader;
+}
+cc.spriteFrameCache.addSpriteFrames('res/test.plist');
+var sp = cc.Sprite.create();
+sp.initWithSpriteFrameName('00000.png');
+sp.x = sp.y = 200;
+scene.addChild(sp);
+//            UseETC1Data(sp);
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            cc.director.runScene(scene);
 
-许昌丽
-18224496265
-510113199103165624
 
 
 
 
 
 
+let node = new cc.Node();
+node.addComponent(cc.Sprite);
+this.node.addChild(node);
+//添加动画组件
+node.addComponent(cc.Animation);
+-------------初始化显示 可选-------------
+let frameName = WeponData.getNameBytype(this.gunType)+"11";
+node.getComponent(cc.Sprite).spriteFrame = WeponData.getSpriteFrameByName(this.gunType,frameName);
+------------------------------
+var frames = [];
+for(let i = 0; i<3;i++)
+{
+    let frameName = WeponData.getNameBytype(this.gunType)+"1"+(i+1);
+    let frame = WeponData.getSpriteFrameByName(this.gunType,frameName);
+    frames.push(frame);
+}
+let clip = cc.AnimationClip.createWithSpriteFrames(frames);
+clip.name = "clip";
+clip.speed = 0.3;
+clip.wrapMode = cc.WrapMode.Loop;//循环播放类型
+let anim = node.getComponent(cc.Animation);
+//添加动画剪辑
+anim.addClip(clip);
+anim.play("clip");
 
 
 
-
-
+var arrAllSocket = [];  
+socketIO.on('connection', function (socket)   
+{  
+    socket.on('join', function (userName)   
+    {  
+        user = userName;  
+        arrAllSocket[user] = socket;//把socket存到全局数组里面去  
+    });  
+   
+    //私聊：服务器接受到私聊信息，发送给目标用户  
+    socket.on('private_message', function (from,to,msg)  
+    {  
+        var target = arrAllSocket[to];  
+        if(target)  
+        {  
+            console.log('emitting private message by ', from, ' say to ',to, msg);  
+            target.emit("pmsg",from,to,msg);  
+        }  
+    });  
+});  
 
 
 
@@ -1425,55 +1614,9 @@ E:\MoDragon\xuanyuanjian_meishu\phone\res\ui
 
 
 
-7:10
-蜂联科技	vs	墨龙科技	D7		time	18:00-19:00    result    win
-7:14
-陌陌信息	vs	墨龙科技	B5		time	18:00-19:00    result    win
-7:24
-墨龙科技	vs	诺亚舟		D7		time	18:00-19:00
-7:25
-墨龙科技	vs	氢行动力	D7		time	19:00-20:00
-7:27
-墨龙科技	vs	当乐科技	B5		time	18:00-19:00
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{
-    1,2,3,4,5,6,7,8,9,10,11,12,13,          --hei
-    14,15,16,17,18,19,20,21,22,23,24,25,26, --hong
-    27,28,29,30,31,32,33,34,35,36,37,38,39, --mei
-    40,41,42,43,44,45,46,47,48,49,50,51,52, --fang
-    53,54                                   --gui
-}
-
-CT_ERROR = 0--错误类型
-CT_SINGLE = 1--单牌类型
-CT_DOUBLE = 2--对牌类型
-CT_THREE  = 3--三条类型
-CT_SINGLE_LINE = 4--单连类型（顺子）
-CT_DOUBLE_LINE = 5--对连类型（连对）
-CT_THREE_LINE  = 6--三连类型（飞机）
-CT_THREE_TAKE_ONE = 7--三带一单
-CT_THREE_TAKE_TWO = 8--三带一对
-CT_FOUR_TAKE_ONE  = 9--四带两单
-CT_FOUR_TAKE_TWO  = 10--四带两对
-CT_BOME_CARD      = 11--炸弹类型
-CT_MISSILE_CARD   = 12--火箭类型
 
 
 
@@ -1515,7 +1658,7 @@ http://cd.zu.anjuke.com/fangyuan/1065390258?from=Filter_1
 
 
 
-
+眼因流多泪水而愈益清明，心因饱经忧患而愈益温厚
 
 
 
