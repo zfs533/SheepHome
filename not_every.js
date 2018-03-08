@@ -1370,6 +1370,16 @@ BUG修改
 
 
 
+
+// 20171226
+// 1：还原animation_group中动画module
+// 2：uiLabel下划线还原
+// 远走高飞1694064545
+
+
+
+
+
 打印内存占用
 var mm = cc.Director.getInstance().getTextureCache().getCachedTextureInfo();
 cc.log("mm "+mm);	
@@ -1575,6 +1585,71 @@ socketIO.on('connection', function (socket)
         }  
     });  
 });  
+
+
+20180111
+// 1:lua-c++-java;
+// 2:java-c++-lua;
+
+20180117
+// 1：将main.cpp中的代码放到Sougou.cpp中去
+// 2：屏蔽先前的语音代码，不删除
+
+20180119
+ios
+password:shiren
+871127
+
+20180119
+优化主界面call次数
+523，-121
+
+
+20180129
+// 查找主界面使用散图的地方并修改
+
+20180202
+列出主界面美术字UI需求
+ var imgLable = new MUIImageLabel();
+imgLable.SetImageUrl("public/image/num/zhandouli/num/0.png");
+imgLable.SetString("+"+100);
+imgLable.x = 290;
+imgLable.y = 275;
+imgLable.scale = 1.2;
+self.fightPowerImg = imgLable;
+Mgr.uiMgr.GetTipsLayer().addChild(imgLable,10000);
+
+（70，-107）
+
+
+
+
+
+
+有梦想，就要坚持捍卫它。很多人和你说不可能，只是因为他们自己办不到。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1856,62 +1931,3 @@ lua之元表(metatable)
 1：豆瓣鲫鱼 http://www.haodou.com/recipe/1153854/
 2：黑鱼 http://mt.sohu.com/20151106/n425517963.shtml
 3：竹笋炒肉 http://www.xinshipu.com/zuofa/9344
-
-
-
-
-
-
-
-
-
-
-
-
-好处：
-1：待遇更好；
-2：责任更大；
-3：成长的更快；
-
-弊端：
-1：心理压力巨大；
-2：学习压力更大；
-3：开发工具不同带来的前期项目进度无法推进；
-4：休息时间变短；
-5：不能每天见到心爱的人（重）；
-6：自己自由分配的时间变少
-
-无法评估：
-1：发展空间；
-2：工作环境和工作氛围；
-3：更高层接触的机会；
-4：新朋友质量；
-
-
-在目前公司的好处：
-1：待遇是工作以来最好的；
-2：福利是工作以来最好的；
-3：压力相对较小；
-4：自由分配的时间充足；
-5：能够腾出学习时间；
-6：公司打球，练舞；
-7：可以天天跟心爱的人在一起（重）；
-
-在目前公司的坏处：
-1：项目推进迟缓；
-2：没有一个骨子里让我钦佩崇拜的人；
-3：技术层面上学到的东西少（相对）；
-
-
-
-
-
-
-
-
-
-
-
-
-
-
